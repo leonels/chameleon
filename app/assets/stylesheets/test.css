@@ -1,0 +1,112 @@
+body{
+  background-color:#eeeade;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding:0;
+  text-align:center;
+}
+
+div#wrapper{
+  background-color:white;
+  width:780px;
+  margin:0 auto;
+  text-align:left;
+}
+
+div#header{
+  background-color:white;
+  padding:10px;
+  width:100%;
+}
+
+div#header h1{
+  font-size:20pt;
+  font-weight:normal;
+}
+
+div#content{
+  float:right;
+  width:580px;
+}
+
+ul#account_navigation{
+  float:right;
+}
+
+ul#account_navigation{
+  font-size:10px;
+  list-style:none;
+  margin:0 10% 0 10%;
+  padding:0;
+}
+
+ul#account_navigation li{
+  float:left;
+  margin:0 0 0 2px;
+  padding:0;
+}
+
+ul#account_navigation li a{
+  display:block;
+  font-family: 'Lucida Grande', 'Lucida Sans', 'Segoe UI', 'Myriad Pro', Tahoma, Verdana, Arial, sans-serif;
+  line-height:2.1em;
+  padding:0 .5em;
+  text-decoration:underline;
+}
+
+ul#account_navigation li a:hover{
+  text-decoration:none;
+}
+
+
+div#main_navigation{
+  float:left;
+  width:100%;
+}
+
+div#main_navigation ul{
+  height:27px;
+  list-style:none;
+  margin:0 5% 0 5%;
+  padding:0;
+}
+
+div#main_navigation ul li{
+  float:left;
+  margin:0 0 0 3px;
+  padding:0;
+}
+
+div#main_navigation ul li a{
+  background-color:blue;
+  color:white;
+  display:block;
+  font-family: 'Lucida Grande', 'Lucida Sans', 'Segoe UI', 'Myriad Pro', Tahoma, Verdana, Arial, sans-serif;
+  line-height:2.1em;
+  padding:0 1em;
+  text-decoration:none;
+}
+
+div#footer{
+  clear:both;
+}
+
+div#footer ul{
+  height:27px;
+  list-style:none;
+  margin:0 5% 0 5%;
+  padding:0;
+}
+
+div#footer ul li{
+  float:left;
+  margin:0 0 0 3px;
+  padding:0;
+}
+
+div#footer ul li a{
+  display:block;
+  font-family: 'Lucida Grande', 'Lucida Sans', 'Segoe UI', 'Myriad Pro', Tahoma, Verdana, Arial, sans-serif;
+  line-height:2.1em;
+  padding:0 1em;
+  text-decoration:none;
+}

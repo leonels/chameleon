@@ -1,0 +1,103 @@
+<!--
+<div id="content">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @page.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @page.body %>
+</p>
+</div>
+-->
+<!-- div content ends -->
+
+
+
+
+    <div id="column-wrapper"><!-- Start #column-wrapper --> 
+
+
+    <div id="left-column"><!-- Start #left-column --> 
+        <div id="hero"> 
+            <a href="#"><img src="<%= theme_asset_path %>img-hero.png" border="0" width="692" height="323"></a> 
+            <a href="#"></a> 
+            <a href="#"></a> 
+            <a href="#"></a> 
+        </div> 
+    </div> 
+    <!-- End #left-column" --> 
+    
+    <div id="right-column"><!-- Start #right-column --> 
+        <div id="online-banking"><!-- Start #online-banking --> 
+            <h2>Secure Online Banking</h2> 
+            <form action="https://www.netteller.com/tx-communitybank/login.cfm" name="login" method="post"> 
+                    <div class="ob-row"> <!-- Start .ob-row --> 
+                        <label for="userid">Username:</label> 
+                        <input name="ID" type="text" class="input" /> 
+                    </div> 
+                    <!-- End .ob-row --> 
+                    <div class="ob-row"> <!-- Start .ob-row --> 
+                        <label for="password">Password:</label> 
+                        <input name="PIN" type="password" class="input" /> 
+                    </div> 
+                    <!-- End .ob-row --> 
+                    <input name="submit" type="image" id="submitBtn" value="Submit" src="/design/img-login-btn.png" /> 
+                </form> 
+                <ul> 
+                    <li><a href="/services-bill-pay.htm">Bill Pay</a></li> 
+                    <li><a href="/internet-banking-enroll.htm">Enroll</a></li> 
+                    <li><a href="/services-online-banking.htm">Learn More</a></li> 
+                </ul> 
+        </div> 
+        <!-- End #online-banking -->        
+    </div> 
+    <!-- End #right-coulmn --> 
+
+
+    <div id="features"><!-- Start #feature -->  
+        <div class="splash-feature"> 
+            <h2>Save time. Save money. Save trees</h2> 
+            <div class="splash-feature-image"> 
+                <img src="<%= theme_asset_path %>img-woman-phone-laptop.png" border="0" width="170" height="121"> 
+            </div> 
+            <div class="splash-feature-text"> 
+                <p> 
+       <strong>E-Statements</strong> make sense and cents-save time, paper and postage with electronic statements. To sign up for <strong>E-Statements</strong> log on to TCB Bank Online today!
+    </p> 
+            </div> 
+            <a href="/services-estatements.htm">Start Now! <img src="img-arrow-btn.png" alt="" width="24" height="24" border="0" /></a> 
+        </div> 
+<div class="splash-feature"> 
+            <h2>A Card to simplify your lifestyle</h2> 
+            <div class="splash-feature-image"> 
+                <img src="<%= theme_asset_path %>img-credit-card.png" border="0" width="262" height="133"> 
+            </div> 
+            <div class="splash-feature-text"> 
+                <p> 
+       <strong>Texas StarCard</strong> gives you a faster, more convenient way to buy the products and services you need. It&#39;s the checking, withdrawing, depositing, and transferring funds card all in one.
+    </p> 
+            </div> 
+            <a href="/services-atm-debit-cards.htm">Find out more <img src="/design/img-arrow-btn.png" alt="" width="24" height="24" border="0" /></a> 
+        </div> 
+<div class="splash-feature"> 
+            <h2>TCB Scene and Heard</h2> 
+            <div class="splash-feature-image"> 
+                <img src="<%= theme_asset_path %>img-lineup.png" border="0" width="273" height="121"> 
+            </div> 
+            <div class="splash-feature-text"> 
+                <p> 
+       E-Statements make sense and cents-save time, paper and postage with electronic statements. To sign up for E-Statements today log on to you TCB Bank Online today!
+    </p> 
+            </div> 
+            <a href="/tcb-scene-heard.htm">Find out more <img src="/design/img-arrow-btn.png" alt="" width="24" height="24" border="0" /></a> 
+        </div> 
+    </div><!-- End #features --> 
+    
+    
+    
+    </div><!-- End #column-wrapper -->
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @website.name %> - <%= @page.title %></title>
+
+
+  <%= stylesheet_link_tag    "strong" %>
+  <%= stylesheet_link_tag "fancybox" %>
+
+  <%= javascript_include_tag "application" %>
+  
+  <%= csrf_meta_tags %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	/* This is basic - uses default settings */
+	
+	$("a#single_image").fancybox();
+	
+	/* Using custom settings */
+	
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+  
+	/* Apply fancybox to multiple items */
+	
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+});
+</script>
+
+
+</head>
+
+<body id="top" class="page page-id-134 page-template page-template-case-studies-php">
+
+<a name="top"></a> 
+
+<div id="page-hold"> 
+  <div id="head" class="clearfix">
+      <% if @website.logo? %>
+        <h1 id="logo" ><a href="#" title="<%= @website.name %>" style="background:url('<%= @website.logo_url(:thumb).to_s %>') no-repeat top left;text-indent:-9999px;"><%= @website.name %></a></h1> 
+      <% else %>
+        <h1 id="logo" ><a href="#" title="<%= @website.name %>" style="color:white;"><%= @website.name %></a></h1> 
+      <% end %>
+
+
+    <div class="nav-search clearfix">
+    <div id="menu_wrapper" class="blue"> 
+		<div class="left"></div> 
+			<ul id="menu">
+				<!-- <li class="active"><a href="#">About</a></li> 
+				<li><a href="#">Services</a></li> 
+				<li><a href="#">Products</a></li> 
+				<li><a href="#">Contact</a></li> -->
+				<% @pages.each do |page| %>
+        <li><%= link_to page.title, root_url(:subdomain => @website.subdomain) + page.permalink %></li>
+      <% end %> 
+			</ul>
+		</div>
+      <!-- 
+      <ul id="nav" class="CaseStudies"> 
+        <li class="Home"><a href="http://www.neonprojects.com.au" title="HOME">Home</a></li> 
+        <li class="WhatWeDo"><a href="http://www.neonprojects.com.au/what-we-do" title="WHAT WE DO">What We Do</a></li> 
+        <li class="Clients"><a href="http://www.neonprojects.com.au/clients" title="CLIENTS">Clients</a></li> 
+        <li class="KeyPeople"><a href="http://www.neonprojects.com.au/key-people" title="KEY PEOPLE">Key People</a></li> 
+        <li class="CaseStudies"><a href="http://www.neonprojects.com.au/case-studies" title="CASE STUDIES">Case Studies</a></li> 
+        <li class="Blog"><a href="http://www.neonprojects.com.au/blog" title="BLOG">Blog</a></li> 
+        <li class="Contact"><a href="http://www.neonprojects.com.au/contact" title="CONTACT">Contact</a></li> 
+      </ul> -->
+      <!-- / #nav --> 
+
+      <!--
+      <form role="search" method="get" id="searchform" action="http://www.neonprojects.com.au/" >
+	      <div>
+	        <input type="text" value="" name="s" id="s" />
+	        <input type="submit" id="searchsubmit" value="Search" />
+	      </div>
+	    </form>
+	    -->
+    </div><!-- / nav-search --> 
+    
+    
+    
+     
+    
+    
+  </div><!-- / #head --> 
+
+
+
+
+
+
+
+
+
+<div id="page" class="clearfix"> 
+  <h1 class="bb"><%= @page.title %></h1> 
+  
+  <!-- <div class="d980 clearfix">  -->
+  <!-- <div class="d980-top"></div> -->
+  <div class="d980-middle clearfix">       
+  <!-- <div class="div920"> -->
+    
+  <div class="div286 fll"> 
+		<!-- <div id="execphp-3" class="widget widget_execphp"> -->
+			<!-- <div class="execphpwidget"> -->
+			  <h3>Filter By Heading 3</h3> 
+        <ul class="filter nmp"> 
+          <li id="current"><a href="#" title="Name of link">All Case Studies UL LI</a></li> 
+          <li><a href="#">UL LI LI A</a></li>
+          <li><a href="#">Data Sheet</a></li>
+          <li><a href="#">Compare Products</a></li>
+        </ul>
+      <!-- </div> --><!-- # execphpwidget -->
+		<!-- </div> --><!-- # execphp-3 -->
+	</div><!-- / div286 fll --> 
+
+        
+  <div class="div602 flr nmp">
+  <div class="post">
+    <h2><a href=""><%= @page.title %></a></h2>
+    <div class="entry">
+
+
+
+
+
+
+
+
+
+
+
+
+<%= yield %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+
+    </div>
+    <a href="#" title="link title here">
+      <img width="562" height="162" src="http://www.neonprojects.com.au/wp-content/uploads/2011/08/Panasonic-Home-Entertainment-Launch-thumb.jpg" class="attachment-tb-562-162 wp-post-image" alt="Panasonic-Home-Entertainment-Launch-thumb" title="image title here" />
+	</a>
+  </div><!-- / post -->
+  </div><!-- / 602 --> 
+  
+  <!-- </div> --><!-- / div920 --> 
+  </div><!-- / d980-middle clearfix --> 
+    <!-- <div class="d980-bottom"></div> -->
+  <!-- </div> --><!-- / d980 clearfix --> 
+ 
+ 
+</div><!--/ page--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="foot-hold">  
+  <div id="foot">
+    <!--
+    <div id="foot-left"> 
+      <h4 id="logo-foot" class="fll clearfix"><a href="http://www.neonprojects.com.au" title="Home &laquo; Neon Projects">Neon Projects</a></h4> 
+    </div> --><!-- / foot-left -->     
+    <div id="foot-right"> 
+    <p>All rights reserved - <span class="white"><%= @website.name %> &copy;</span> - <a href="#" title="Link name">Site hosted by LaredoDir</a> &#124; <a href="#top" title="Top of Page"><span>Top of Page</span></a></p> 
+    <ul id="nav-foot" class="CaseStudies clearfix">
+      <% @pages.each do |page| %>
+        <li><%= link_to page.title, page_path(page) %></li>
+        <li>&#124;</li> 
+      <% end %> 
+    </ul><!-- / #nav --> 
+    </div><!-- / foot-right -->  
+  </div><!-- / foot --> 
+</div><!-- / foot-hold--> 
+
+</div><!-- / page-hold -->
+
+</body>
+</html>

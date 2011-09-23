@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{Rails.application.class.parent_name}" %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+<style>
+table#signup{
+	border-collapse:separate;
+	border-spacing:2px;
+	width:600px;
+}
+
+table#signup td.label{
+	text-align:left;
+	width:70px;
+}
+
+table#signup td{
+	text-align:left;
+}
+
+table#signup td input, fieldset input{
+	font-size:16px;
+	font-weight:bold;
+	padding:3px;
+}
+
+span.hint{
+	color:#999;
+	font-size:11px;
+}
+
+div#offer_to_sign_in{
+	background-color:#FFC;
+	border:1px solid #CCC;
+	padding:10px 15px 10px 15px;
+	margin:5px 0 15px 0;
+}
+</style>
+
+
+</head>
+<body id="<%= params[:controller] %>" >
+
+<div id="header_container" style="background-color:#222;">  
+  <div id="header">
+    <h1 id="app_title" style="color:white;"><%= "#{Rails.application.class.parent_name}" %></h1>
+  </div>
+</div>
+
+
+<div id="container" style="border:1px solid #CCC;margin-top:20px;padding:0;width:700px;">
+  
+  <% if alert %>
+  <p id="alert"><%= alert %></p>
+  <% end %>
+
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
+  
+<%= yield %>
+
+</div>
+
+</body>
+</html>

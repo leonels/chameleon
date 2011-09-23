@@ -1,0 +1,9 @@
+<h1>Thank you for contacting us: <%= @website.name %></h1>
+
+<h2>Here's what you sent.</h2>
+
+<p><b>Name</b>: <%= @message.visitor_name %></p>
+<p><b>Email</b>: <%= @message.visitor_email %></p>
+<p><b>Phone</b>: <%= @message.visitor_phone %></p>
+
+<p><b>Content</b>: <%= simple_format @message.content %></p>

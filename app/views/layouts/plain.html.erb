@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chameleon</title>
+  <%= stylesheet_link_tag    "plain" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="header">
+    <div id="logo"><a href="/"><img src="<%= theme_asset_path %>img-logo.png" /></a></div>
+    
+      <div id="header-right">
+        <div id="topNav">
+          <ul>
+            <% @pages.each do |page| %>
+            <li><%= link_to page.title, page_path(page) %></li>
+            <% end %>
+          </ul>
+        </div><!-- end topNav -->
+        
+        <div id="slogan">
+          <img src="<%= theme_asset_path %>img-slogan2.png" width="310" height="107" alt="Committeed to Community Banking">
+        </div>
+        
+      </div><!-- end header-right -->
+  </div><!-- end header div -->
+      
+    <!--
+    <ul id="account_navigation">
+    <% @pages.each do |page| %>
+      <li><%= link_to page.title, page_path(page) %></li>
+    <% end %>
+    </ul>
+    <h1><%= @website.name %></h1>
+    -->
+    
+
+  
+
+        <div id="mainNav"><!-- Start #mainNav --> 
+            <ul> 
+                   
+          <li class="item1"><a href="/personal-banking.htm"> 
+            Personal
+          </a> 
+       
+     <ul> 
+          <li><a href="/personal-checking.htm"> 
+            Checking Accounts
+          </a></li> 
+      
+          <li><a href="/personal-interest-bearing.htm"> 
+            Interest Bearing Accounts
+          </a></li> 
+      
+          <li><a href="/personal-savings.htm"> 
+            Savings and Money Market Accounts
+          </a></li> 
+      
+          <li><a href="/personal-time-deposit-iras.htm"> 
+            Time Deposits and IRAs
+          </a></li> 
+      
+          <li><a href="/personal-loans-mortgages.htm"> 
+            Loans and Mortgages
+          </a></li> 
+      </ul> 
+    
+        </li> 
+         
+          <li class="item2"><a href="/business-banking.htm"> 
+            Business
+          </a> 
+       
+     <ul> 
+          <li><a href="/business-checking.htm"> 
+            Checking Accounts
+          </a></li> 
+      
+          <li><a href="/business-non-profit.htm"> 
+            Non-Profit Accounts
+          </a></li> 
+      
+          <li><a href="/personal-savings.htm#"> 
+            Savings and Money Market Accounts
+          </a></li> 
+      
+          <li><a href="/personal-time-deposit-iras.htm#"> 
+            Time Deposits
+          </a></li> 
+      
+          <li><a href="/business-merchant-services.htm"> 
+            Merchant Services
+          </a></li> 
+      
+          <li><a href="/business-loans.htm"> 
+            Commercial Loans
+          </a></li> 
+      
+          <li><a href="/business-remote-deposit-capture.htm"> 
+            Remote Deposit Capture
+          </a></li> 
+      </ul> 
+    
+        </li> 
+         
+          <li class="item3"><a href="/international-services.htm"> 
+            International Services
+          </a> 
+      
+        </li> 
+         
+          <li class="item4"><a href="/tcb-investments.htm"> 
+            TCB Investments
+          </a> 
+      
+        </li> 
+         
+          <li class="item5"><a href="/services.htm"> 
+            Services
+          </a> 
+       
+     <ul> 
+          <li><a href="/services-online-banking.htm"> 
+            Online Banking
+          </a></li> 
+      
+          <li><a href="/services-atm-debit-cards.htm"> 
+            ATM/Debit Cards
+          </a></li> 
+      
+          <li><a href="/services-tcb-voice-response.htm"> 
+            TCB 24/7 Voice Response
+          </a></li> 
+      
+          <li><a href="/services-gift-cards.htm"> 
+            Gift Cards
+          </a></li> 
+      
+          <li><a href="/services-safe-deposit-boxes.htm"> 
+            Safe Deposit Boxes
+          </a></li> 
+      
+          <li><a href="/services-estatements.htm"> 
+            E-Statements 
+          </a></li> 
+      
+<li><a href="notice.htm?http://www.harland.com/"> 
+Reorder Checks
+ </a></li> 
+     
+          <li><a href="/services-bill-pay.htm"> 
+            Bill Pay Service
+          </a></li> 
+      
+          <li><a href="/services-mobile-banking.htm"> 
+            Mobile Banking
+          </a></li> 
+      </ul> 
+    
+        </li> 
+         
+          <li class="item6"><a href="/lifestages.htm"> 
+            LifeStages
+          </a> 
+       
+     <ul> 
+          <li><a href="/ls-rising-star.htm"> 
+            Rising Star
+          </a></li> 
+      
+          <li><a href="/ls-texas-star.htm"> 
+            Texas Star
+          </a></li> 
+      
+          <li><a href="/ls-lone-star.htm"> 
+            Lone Star
+          </a></li> 
+      
+          <li><a href="/ls-silver-star.htm"> 
+            Silver Star
+          </a></li> 
+      
+          <li><a href="/ls-business-checking.htm"> 
+            Commercial Customers
+          </a></li> 
+      </ul> 
+    
+        </li> 
+      
+            </ul> 
+        </div> 
+        <!-- End #mainNav -->
+
+
+
+<!--
+<div id="main_navigation">
+<%= render 'pages/pages' %>
+</div>
+-->
+
+
+<%= yield %>
+
+<!--
+<div id="footer">
+<ul>
+  <li><a href="/websites">Websites</a></li>
+  <li><a href="/pages">Pages</a></li>
+</ul>
+</div>
+-->
+
+
+
+      <div id="footer-top"> 
+<div id="footer-links"><!-- Start #footer-links --> 
+           <ul> 
+      <li><a href="/index.htm">Home</a></li> 
+      <li><a href="/333.htm" target="_blank">Privacy Statement</a></li> 
+      <li><a href="/334.htm" target="_blank">USA Patriot Act</a></li> 
+      <li><a href="/336.htm" target="_blank">Security</a></li> 
+      <li><a href="/337.htm" target="_blank">Identity Theft</a></li> 
+      <li><a href="/338.htm" target="_blank">Phishing</a></li> 
+      <li><a href="/339.htm" target="_blank">FDIC Insurance</a></li> 
+      <li><a href="/340.htm" target="_blank">Terms & Conditions</a></li> 
+     <!--  --> 
+    </ul> 
+        </div> 
+        <!-- End #footer-links --> 
+</div> 
+<!-- end #footer-top --> 
+<div id="footer"> 
+        <div id="footer-left"><!-- Start #footer-left --> 
+        <p> 
+       NOTICE: <strong>Texas Community Bank</strong> is not responsible for and has no control over the subject matter, content, information, or graphics of the web sites that have links here. The bank is not responsible for the content. Please <a target="_self" href="/a_contact.htm" >contact us</a> with any concerns or comments.
+    </p> 
+       <p> 
+       © 2011 Texas Community Bank. All rights reserved.<br /> 
+       Website powered by <a href="notice.htm?http://www.profitstars.com">ProfitStars</a>.
+       </p> 
+        </div> 
+        <!-- End #footer-left --> 
+        <div id="footer-right"> 
+            <div id="fdic-logo"><a href="notice.htm?http://www.fdic.gov"><img src="/design/img-fdic-logo.png" width="77" height="39" alt="Member FDIC" border="0" /></a></div> 
+            <div id="ehl-logo"><a href="notice.htm?http://www.hud.gov"><img src="/design/img-ehl-logo.png" width="104" height="41" alt="Equal Housing Lender" border="0" /></a></div> 
+            <div id="geotrust"> 
+             
+            </div> 
+            <div id="pharming"></div> 
+        </div> 
+        <!-- End #footer-right --> 
+</div> 
+<!-- end #footer --> 
+<div id="footer-bottom"></div>
+
+
+
+
+
+
+</div><!-- end wrapper div -->
+
+</body>
+</html>

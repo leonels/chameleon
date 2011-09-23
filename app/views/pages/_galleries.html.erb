@@ -1,0 +1,73 @@
+<% unless (@page.galleries).empty? %>
+<!-- http://www.cssbakery.com/2011/05/css-image-grid-using-sprites_30.html -->
+<style>
+ul.imggrid {
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  width: 495px;
+  }
+
+.imggrid li {
+    float: left;
+    padding: 1px;
+    border: 1px solid #cbcad0;
+    margin: 0 5px 10px 5px;
+    list-style: none;
+    } 
+
+.imggrid_display {
+   padding: 20px;
+   margin: 0 auto;
+   width: 513px; 
+   /*these two properties will be inherited by .portfolio h2 and .portfolio p */
+   font-family: 'GraublauWeb', arial, serif; 
+   text-align: center;
+  }
+
+  /* .post-body is only for those who are on Blogger, or all others please skip 
+     it and write your selector as "div.imggrid_display h2" without the quotes
+  */
+  .post-body div.imggrid_display h2 {
+     padding: 0; margin: 0;
+     clear: both;
+     font-size: 35px;
+     font-weight: normal;
+     color: #58595b;
+     background: none;
+     font-family: 'GraublauWeb', arial, serif;  
+     /* reset for cascade effects that are trickling down to me 
+       from other h2's 
+    */
+     text-transform: none;
+     letter-spacing: normal;
+     }
+  
+  .imggrid_display p {
+      margin:0; padding: 0;
+      font-size: 15px;
+      color: #58595b;
+      }
+  
+/* sprites for imggrid */
+.imggrid a {
+    /* background: url('images/spritebitmaps.jpg') no-repeat; */
+    /* height: 150px;
+    width: 150px; */
+    height: 100px;
+    width: 100px;
+    display: block;
+    }
+</style>
+
+<% @photos = Photo.all(:conditions => ["gallery_id == ?", @page.galleries[0].id], :order => "created_at DESC") %>
+<div class="imggrid_display">
+  <ul class="imggrid">
+  <% for photo in @photos %>
+    <li>
+      <a href="<%= photo.image_url(:medium).to_s %>" class="group" title="<%= photo.title %>" ><%= image_tag photo.image_url(:thumb).to_s, :class => 'gallery_photo' %></a>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<% end %>

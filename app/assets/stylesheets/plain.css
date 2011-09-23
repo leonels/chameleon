@@ -1,0 +1,418 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+                    STYLES DIRECTORY:
+                
+                    01. RESET STYLES
+                    02. HEADER STYLES
+                    03. MAIN NAVIGATION
+                    04. MAIN NAVIGATION DROPDOWN
+                    05. HERO SECTION
+                    06. ONLINE BANKING
+                    07. SPLASH FEATURES
+                    08. CONTENT STYLES
+                    09. FOOTER STYLES
+                */
+/* ---------------- 01. BEGIN RESET CODE ---------------- */
+wrapper, body, div, p, h1, h2, h3, ul, li, form, fieldset {margin:0;padding:0;}
+.clear {clear:both;}
+.floatLeft {float:left;border:0;}
+.floatRight {float:right;border:0;}
+a {outline:none;}
+/*------------------ 02. GLOBAL STYLES ------------------*/
+html{color:#333;font-family:Arial, Helvetica, sans-serif;font-size:13px;}
+body {background-image:url(plain/img-body.jpg);}
+#wrapper {
+    width: 960px;
+    margin: 0 auto;
+    overflow:hidden;
+    background:transparent url(plain/img-wrapper.png) no-repeat 0 167px;
+}
+#interior #wrapper {width: 960px;margin: 0 auto;overflow:hidden;background:none;}
+/*------------------ 03. HEADER ------------------*/
+#header {width:954px;height:167px;margin:0 auto;}
+#logo {float:left;}
+#header-right {float:right;width:643px;padding-top:10px;}
+#header-right #topNav {text-align:right;}
+#header-right #topNav ul {list-style:none;}
+#header-right #topNav li {display:inline;padding-left:13px;}
+#header-right #topNav li a {text-decoration:none;color:#333;font-weight:bold;}
+#header-right #topNav li a:hover {text-decoration:underline;}
+#language {padding-top:10px;float:right;width:250px;height:20px;text-align:right;}
+#language ul {list-style:none;}
+#language li {display:inline;}
+#language a {color:#333;font-weight:bold;font-size:15px;}
+#language a:hover {text-decoration:none;}
+#language img {padding-right:5px;}
+#language span {padding:0 8px;}
+#header-right #slogan {clear:right;text-align:right;}
+/*------------------ 04. COLUMNS ------------------*/
+#column-wrapper {overflow:hidden;width:960px;}
+#column-interior {
+    background:url(/design/img-column-wrapper.png) repeat-y;
+    overflow:hidden;
+}
+#column-wrapper-bottom {
+    background:url(/design/img-column-wrapper-bottom.png) no-repeat left bottom;
+    height:10px;
+}
+#column-wrapper-top {
+    background:url(/design/img-column-wrapper-top.png) no-repeat;
+    height:10px;
+    margin-top:-1px;
+}
+#left-column {
+    float:left;
+    width:714px;
+    padding:18px 0 0 12px;
+    background:url(plain/img-left-column-bg.png) no-repeat 0px -9px;
+    margin-left:5px;
+    min-height:347px;
+}
+#right-column {float:left;width:226px;}
+#interior #right-column {
+    float:left;
+    width:226px;
+    background:url(/design/img-right-column.png) no-repeat 0 -10px;
+}
+/*------------------ 05. MAIN NAVIGATION ------------------*/
+#mainNav {
+    width:883px;
+    height:63px;
+    padding-left:3px;
+    background:url(plain/img-mainNav.png) no-repeat;
+    position:relative;
+    z-index:10;
+}
+#mainNav ul {list-style:none;}
+#mainNav li {float:left;position:relative;}
+#mainNav ul li.item1 {width:113px;}
+#mainNav ul li.item2 {width:125px;}
+#mainNav ul li.item3 {width:218px;}
+#mainNav ul li.item4 {width:180px;}
+#mainNav ul li.item5 {width:121px;}
+#mainNav ul li.item6 {width:125px;}
+#mainNav ul li a {
+    padding:24px 0 0 0;
+    height:39px;    
+    font-size:14px;
+    font-weight:bolder;
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    line-height:1.2em;
+    text-align:center;
+}
+#mainNav ul li.item1 a:hover, #mainNav ul li.item1 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat 1px 2px;}
+#mainNav ul li.item2 a:hover, #mainNav ul li.item2 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat -112px 2px;}
+#mainNav ul li.item3 a:hover, #mainNav ul li.item3 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat -237px 2px;}
+#mainNav ul li.item4 a:hover, #mainNav ul li.item4 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat -455px 2px;}
+#mainNav ul li.item5 a:hover, #mainNav ul li.item5 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat -635px 2px;}
+#mainNav ul li.item6 a:hover, #mainNav ul li.item6 a.selected {background:url(plain/img-mainNav-hover.png) no-repeat -756px 2px;}
+/*------------------ 05A. MAIN NAVIGATION DROPDOWNS ------------------*/
+#mainNav ul li ul{
+    position:absolute;
+    z-index:1000;
+    width:183px;
+    top:62px;
+    left:0px;
+    visibility:hidden;
+    background:#fff;
+    border-left:solid 1px #F1DAB5;
+    border-right:solid 1px #F1DAB5;
+    border-bottom:solid 5px #881620;
+}
+#mainNav ul li ul li {float:none;}
+#mainNav ul li ul li a {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:13px;
+    width:168px;
+    background:none!important;
+    padding:5px 0 5px 15px;
+    height:auto;
+    text-align:left;
+    color:#881620;
+}
+#mainNav ul li ul li a:hover {text-decoration:underline;background:#fff;}
+#mainNav ul li ul li ul {top:0;left:}
+#mainNav li:hover ul, #mainNav li:hover li:hover ul {visibility:visible;}
+#mainNav li:hover li ul, #mainNav li:hover li:hover li ul {visibility:hidden;}
+#mainNav li:hover>ul {display:block;visibility:visible;}
+html>body #mainNav li ul {display:none;}
+/*------------------ 06. HERO ------------------*/
+#hero {
+    width:692px;
+    height:323px;
+    overflow:hidden;
+    position:relative;
+    z-index:1;
+}
+/*------------------ 07. ONLINE BANKING ------------------*/
+#online-banking {padding:10px 0 0 22px;height:347px;}
+#interior #online-banking {padding:0 0 0 22px; height:357px;}
+#online-banking h2 {
+    font-family:"Baskerville Old Face", "Times New Roman", serif;
+    font-size:20px;
+    color:#fff;
+    font-weight:normal;
+    line-height:1.1em;
+    margin-bottom:18px;
+}
+#online-banking form .ob-row {width:182px;height:47px;}
+#online-banking form label {font-size:12px;margin-bottom:5px;color:#fff;display:block;}
+.input {
+    width:180px;
+    border:solid 1px #666;
+    height:18px;
+    font-size:11px;
+    line-height:18px;
+}
+#submitBtn {width:55px;height:22px;margin-bottom:10px;}
+#online-banking ul {list-style:none;font-size:15px;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+#online-banking li {padding-bottom:8px;}
+#online-banking li a {color:#fff;}
+#online-banking li a:hover {text-decoration:none;}
+/*------------------ 08. RIGHT COLUMN FEATURE ------------------*/
+#right-column-feature {padding:20px 5px 0 0;}
+#right-column #right-column-feature h2 {font-size:15px;color:#881620;margin:0 0 10px 5px;}
+#right-column-feature ul {list-style:none;font-size:13px;margin-left:5px;}
+#right-column-feature li {padding:0 0 5px 17px;background:url(/design/bullet-starBlue.png) no-repeat 0 .2em;}
+#right-column-feature li a {color:#0066cc;}
+/*------------------ 09. HOME PAGE FEATURES ------------------*/
+#features {
+    clear:both;
+    width:955px;
+    height:313px;
+    padding-left:5px;
+    background:url(plain/img-features.png) no-repeat;
+}
+#features .splash-feature {float:left;width:317px;padding-top:19px;}
+#features .splash-feature h2 {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:17px;
+    font-weight:normal;
+    color:#fff;
+    line-height:1em;
+    height:37px;
+    text-align:center;
+}
+#features .splash-feature-image {height:138px;text-align:center;}
+#features .splash-feature-text {margin-left:29px;width:280px;height:80px;line-height:1.2em;}
+#features a {
+    margin:5px 0 0 29px;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    color:#25306e;
+    text-decoration:none;
+    height:30px;
+    display:inline-block;
+}
+#features a img {
+    position:relative;
+    top:5px;
+    right:0;
+}
+#features a:hover {color:#3D4989;}
+/*------------------ 10. MAIN CONTENT ------------------*/
+#content {width: 706px;font-size:14px;overflow:hidden;}
+#content #breadcrumb {height:27px;font-size:12px;}
+#content #breadcrumb a {line-height:1em;color:#333;text-decoration:none;}
+#content #breadcrumb a:hover {text-decoration:underline;}
+#content #breadcrumb span {padding:0 5px;}
+#content h1 {font-size:24px;color:#25306e;font-weight:normal;margin-bottom:15px;}
+#content h2 {font-size:20px;color:#881620;font-weight:normal;margin-bottom:15px;}
+#content h3 {font-size:16px;margin-bottom:10px;}
+#content h4 {font-size:14px;margin:0 0 10px 0;}
+#content h6 {font-weight:normal;margin-bottom:10px;font-size:13px;}
+#content p {margin-bottom:10px;margin-right:20px;}
+#content a {color:#0066cc;}
+#content a:hover {text-decoration:none;}
+#content ul {margin:0 0 20px 20px;list-style:none;}
+#content ul li {
+    background:url(/design/bullet-starBlue.png) no-repeat 0 .1em;
+    padding-left:20px;}
+#content ol {margin:0 0 20px 40px;padding:0;}
+#content th {background-color:#25306E;color:#fff;padding:5px;}
+#content a.bookmark {font-size:20px;color:#881620;font-weight:normal;margin-bottom:15px;text-decoration:none;}
+/*------------------ 10A. MAIN CONTENT: PRODUCT BOX ------------------*/
+#content .product-box {
+    width:342px;
+    min-height:167px;
+    float:left;
+    background-color:#D8E0E9;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    padding:12px 0 0 12px;
+    margin-right:10px;
+}
+#content .product-box h2 {
+    font-size:20px;
+    font-weight:normal;
+    color:#881620;
+    line-height:1em;
+    height:22px;
+}
+#content .product-box ul {list-style:none;}
+#content .product-box li {
+    background:url(/design/bullet-starBlue.png) no-repeat 0 .3em;
+    padding:3px 0 3px 35px;   
+}
+#content .product-box li a {color:#333;text-decoration:none;}
+#content .product-box li a:hover {text-decoration:underline;}
+/*------------------ 10B. MAIN CONTENT: PRODUCT BOX BIG ------------------*/
+#content #product-box-big-top {
+    width:699px;
+    height:12px;
+    background:url(/design/img-product-box-big-top.png) no-repeat;
+}
+#content div.product-box-big {
+    width:673px;
+    background:#D9E1EB url(/design/img-product-box-border.jpg) no-repeat 16px bottom;
+    padding:10px 10px 10px 16px;
+}
+#content div.product-box-big-no-border {
+    width:673px;
+    background:#D9E1EB none;
+    padding:10px 10px 10px 16px;
+    margin:0;
+}
+#content div.product-box-big h2 {
+    font-size:20px;
+    font-weight:normal;
+    color:#881620;
+    line-height:1em;
+    height:34px;
+}
+#content div.product-box-big-no-border h2 {
+    font-size:20px;
+    font-weight:normal;
+    color:#881620;
+    line-height:1em;
+    height:34px;
+}
+#content div.product-box-big p {font-size:13px;margin-bottom:10px;}
+#content div.product-box-big-no-border p {font-size:13px;margin-bottom:10px;}
+#content #product-box-big-bottom {
+    width:699px;
+    height:11px;
+    background:url(/design/img-product-box-big-bottom.png) no-repeat;
+    margin-bottom:10px;
+}
+/*------------------ 10A. MAIN CONTENT: LIFESTAGES LANDING ------------------*/
+#content table.ls-landing {background:#D9E1EB;margin:0;padding:0;}
+#content table.ls-landing td {margin:0;padding-left:20px;}
+#content div.ls-landing-table {width:326px;height:122px;overflow:hidden;}
+#content div.ls-landing-table-left {float:left;margin-right:10px;width:76px;}
+#content div.ls-landing-table-right {width:240px;float:right;}
+#content div.ls-landing-table h3 {font-size:16px;color:#25306d;font-weight:normal;margin-bottom:5px;}
+#content div.ls-landing-table a {
+    font-size:13px;
+    color:#25306d;
+    text-decoration:none;
+    width:92px;
+    height:10px;
+    line-height:.8em;
+    display:block;
+    background:url(/design/img-arrow-sprite.png) no-repeat right top;
+}
+#content div.ls-landing-table a:hover {background-position:right -10px;}
+/*------------------ 10A. MAIN CONTENT: LIFESTAGES SPECIFIC ACCORDION ------------------*/
+#content .title {
+    display:block;
+    cursor:pointer;
+    line-height:1em;
+    margin-bottom:10px;
+}
+#content .title .accordion-title-top {
+    width:706px;
+    height:8px;
+    background:url(/design/img-ls-accordion-title-top.jpg) no-repeat;
+}
+#content .title .accordion-title-bottom {
+    width:706px;
+    height:6px;
+    background:url(/design/img-ls-accordion-title-bottom.jpg) no-repeat;
+}
+#content .title .accordion-title-content {
+    width:706px;
+    background:url(/design/img-ls-accordion-title-content.jpg) no-repeat;
+}
+#content .title h4 {
+    background:url(/design/img-accordion-arrow-down.png) no-repeat 15px 0px;
+    padding:5px 0 5px 43px;
+    margin:0;
+    margin-right:10px;
+    line-height:1.1em;
+    }
+#content .openTitle {display:block;cursor:pointer;line-height:1em;margin-bottom:0;}
+#content .openTitle .accordion-title-top {
+    width:706px;
+    height:8px;
+    background:url(/design/img-ls-accordion-title-top.jpg) no-repeat;
+}
+#content .openTitle .accordion-title-bottom {
+    width:706px;
+    height:6px;
+    background:url(/design/img-ls-accordion-title-bottom.jpg) no-repeat;
+}
+#content .openTitle .accordion-title-content {
+    width:706px;
+    background:url(/design/img-ls-accordion-title-content.jpg) no-repeat;
+}
+#content .openTitle h4 {
+    background:url(/design/img-accordion-arrow.png) no-repeat 15px 0px;
+    padding:5px 0 5px 43px;
+    margin:0;
+    margin-right:10px;
+    line-height:1.1em;
+}
+#content .description {
+    padding:21px 10px 20px 27px;
+    border:1px solid #9A9EA0;
+    border-top:none;
+    background:#f0f2f4;
+    width:666px;
+    display:none;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+#content div.product-box-big-no-border h3 {font-size:19px;color:#1e2657}
+#content ul.tips {list-style:none;margin:0 0 0 30px;}
+#content ul.tips li {
+    background:url(/design/bullet-texasBlue.png) no-repeat 0 0;
+    padding:0 0 10px 40px;
+}
+/*------------------ 11. FOOTER ------------------*/
+#footer-top {
+    width:923px;
+    height:27px;
+    padding:16px 0 0 37px;
+    background:url(plain/img-footer-top.png) no-repeat;
+}
+#footer {
+    width:923px;
+    overflow:hidden;
+    padding:16px 0 0 37px;
+    background:url(plain/img-footer-body.png) repeat-y;
+}
+#footer-links ul {list-style:none;}
+#footer-links li {display:inline;padding-right:22px;line-height:1.2em;}
+#footer-links a {color:#fff;text-decoration:none;}
+#footer-links a:hover {text-decoration:underline;}
+#footer #footer-left {float:left;width:414px;}
+#footer #footer-left p {color:#fff;margin:0 38px 15px 0;font-size:12px;}
+#footer #footer-left a {color:#fff;}
+#footer #footer-left a:hover {text-decoration:none;}
+#footer #footer-right {float:right;width:509px;padding-top:18px;}
+#footer-right #fdic-logo {float:left;width:96px;padding-top:18px;}
+#footer-right #ehl-logo {float:left;width:120px;padding-top:18px;}
+#footer-right #geotrust {float:left;width:139px;}
+#footer-right #pharming {float:left;}
+#footer-bottom {
+    width:960px;
+    height:18px;
+    background:url(plain/img-footer-bottom.png) no-repeat;
+}

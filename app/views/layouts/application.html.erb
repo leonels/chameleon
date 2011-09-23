@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chameleon</title>
+  <%= stylesheet_link_tag    "app" %>
+  <%= stylesheet_link_tag "fancybox" %>
+
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  
+	/* Apply fancybox to multiple items */
+	
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+});
+</script>
+
+
+</head>
+<body>
+<div id="topNav">
+	<div class="navCon">
+		<ul>
+			
+			<li>Signed in as <%= current_user.username %></li>
+			<li> | </li>
+			<li>	
+				<a class="blue" href="/help/feedback">Help</a>
+			</li>
+			<li> | </li>
+			<li>
+				<%= link_to 'Log out', logout_path, :class => 'blue' %>
+			</li>
+			
+		</ul>
+		<p class="small">
+			<span id="portfolio_title">Your Business Name or Account Name</span> 
+			<span style="margin-left:4px; font-size:0.9em; color:#999;">(<a href="<%= pages_path %>" target="_blank" class="blue">View your website</a>)</span>
+		</p>
+	</div>
+</div>
+
+<div id="mainNav">
+	<div class="navCon">
+		
+		<ul>
+			<!-- / .upgrade, .account -->
+			
+			<li class="admin " ><a href="/account" class="upgrade"></a></li>
+			<li class="admin "><a href="/settings" class="settings"></a></li>
+			
+			
+			<li class="admin "><a href="/personalize" class="customize"></a></li>
+			<li class=""><a href="/" class="projects"></a></li>
+			<li class="current"><a href="/about" class="about"></a></li>
+			
+			<!-- <li><%= link_to 'Websites', root_url(:subdomain => false) %></li> -->
+			<% if @website %>
+			  <li><%= @website.name %> (
+			    <%= link_to 'Pages', website_path(@website) %> |
+			    <%= link_to 'Images', images_path %> | 
+			    <%= link_to 'Galleries', galleries_path %> |
+			    <%= link_to 'Forms', forms_path %> |
+			    <%= link_to 'Messages', messages_path %> | 
+			    <%= link_to 'Website Settings', edit_website_path(@website) %>
+			    )</li>
+			<% end %>
+			
+		</ul>
+	</div>
+</div>
+<div class="clear" style="height:1px; background-color:#FFF;"></div>
+
+<div id="container">
+
+
+<%= yield %>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="footer">
+	<p id="rights" class="small">
+		 &copy; 2011 LeonelOnRails
+		 <!-- 
+		 | 
+		<a href="http://carbonmade.com/terms" target="_blank">Terms</a> | 
+		<a href="http://carbonmade.com/privacy" target="_blank">Privacy</a>
+		-->
+	</p>
+	<p id="branding"></p>
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>

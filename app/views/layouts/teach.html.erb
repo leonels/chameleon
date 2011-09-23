@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chameleon</title>
+  <%= stylesheet_link_tag    "teach" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="page page-id-2 page-template-default">
+
+<div id="wrapper" class="hfeed"> 
+
+	<div id="header"> 
+		<div id="title"> 
+			<a href="/"> 
+			<h1>iTeach Miami</h1> 
+			<h2>From inspiration to innovation.</h2> 
+			<blockquote>September 10-11, 2011</blockquote> 
+			</a> 
+		</div> 
+		
+		<div id="newsletter"> 
+			<div id="form"> 
+				<form name="ccoptin" action="http://visitor.r20.constantcontact.com/d.jsp" target="_blank" method="post"> 
+				<input type="hidden" name="llr" value="jcjeztcab"> 
+				<input type="hidden" name="m" value="1102323000393"> 
+				<input type="hidden" name="p" value="oi"> 
+				<input type="text" name="ea" onfocus="this.select()" onclick="this.value='';" onblur="this.value=!this.value?'Enter your email address':this.value;" value="Enter your email address" id="form-input"> 
+				<input type="submit" name="go" value="" id="form-submit"> 
+				</form> 
+			</div> 
+		</div> 
+
+
+    <div id="access">
+			<div id="navigation-header">
+			  <ul id="navigation">
+          <% @pages.each do |page| %>
+            <li><%= link_to page.title, page_path(page) %></li>
+          <% end %>
+        </ul>
+      </div><!-- # navigation header -->
+    </div><!-- # access -->
+
+<!--
+		<div id="access">
+		  <div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div> 
+				<div class="menu-header">
+				  <ul id="menu-menu" class="menu">
+				    <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="http://www.iteachmiami.com/">Home</a></li> 
+            <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-28"><a href="http://www.iteachmiami.com/about/">About</a></li> 
+            <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="http://www.iteachmiami.com/program/">Program</a></li> 
+            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="http://www.iteachmiami.com/location-travel/">Location &#038; Travel</a></li> 
+            <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="http://www.iteachmiami.com/sponsors/">Sponsors</a></li> 
+            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="http://www.iteachmiami.com/media/">Media</a></li> 
+          </ul>
+        </div>
+      </div>
+-->
+	  </div><!-- #header --> 
+
+
+
+    <div class="clear"></div>
+
+
+
+
+<%= yield %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="clear"></div> 
+	<!--
+	<div id="footer-nav"> 
+		<div id="email"><a href="mailto:info@cckevents.com" target="_blank">Email Us</a></div> 
+		<a href="http://www.facebook.com/pages/ITeach-Miami/106567329408239" target="_blank"><div id="facebook">Facebook</div></a> 
+		<a href="http://twitter.com/iteachmiami" target="_blank"><div id="twitter">Twitter</div></a> 
+	</div>
+	--> 
+
+
+
+	<div id="footer"> 
+		<div id="footer-content"> 
+			<!-- <a href="#" target="_blank"><img src="http://www.iteachmiami.com/wp-content/themes/iteachmiami/images/cck-logo.gif" alt="" /></a>  -->
+			<p style="padding-top: 20px">LAREDODIR  |  7 west 77th street, suite 107  |  laredo, texas 78045</p> 
+			<p>p. 956.750.7775</p> 
+			<p>Site design by <a href="/">Laredo Dir</a></p> 
+		</div> 
+	</div><!-- #footer --> 
+
+
+
+</body>
+</html>

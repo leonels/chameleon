@@ -1,0 +1,42 @@
+<h1>Editing photo</h1>
+
+
+<%= form_for(@photo, :html => {:multipart => true}) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+      <% unless @photo.image_url.blank? %>
+        <div style="background-color:white;border:1px solid black;margin:10px;padding:5px;text-align:center;">
+          <%= image_tag @photo.image_url(:thumb).to_s, :class => 'gallery_photo' %>
+          <%= link_to @photo.title, edit_gallery_photo_path(@photo) %><br />
+          <%= f.check_box :remove_image %>Remove photo<br />
+        </div>
+      <% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @photo %> |
+<%= link_to 'Back', gallery_path(@gallery) %>

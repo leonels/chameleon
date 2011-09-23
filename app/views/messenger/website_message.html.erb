@@ -1,0 +1,7 @@
+<h1>You have a message from your Website: <%= @website.name %></h1>
+
+<p><b>Name</b>: <%= @message.visitor_name %></p>
+<p><b>Email</b>: <%= @message.visitor_email %></p>
+<p><b>Phone</b>: <%= @message.visitor_phone %></p>
+
+<p><b>Content</b>: <%= simple_format @message.content %></p>

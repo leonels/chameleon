@@ -1,0 +1,28 @@
+<h1>Listing forms</h1>
+
+<table>
+  <tr>
+    <th>Heading</th>
+    <th>Page</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forms.each do |form| %>
+  <tr>
+    <td><%= form.heading %></td>
+
+    <% page = Page.find(form.page_id) %>
+    <td><%= page.title %></td>
+
+    <td><%= link_to 'Show', form %></td>
+    <td><%= link_to 'Edit', edit_form_path(form) %></td>
+    <td><%= link_to 'Destroy', form, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Form', new_form_path %>

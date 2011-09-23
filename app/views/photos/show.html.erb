@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+      <% unless @photo.image_url.blank? %>
+        <div style="background-color:white;border:1px solid black;margin:10px;padding:5px;text-align:center;">
+          <%= image_tag @photo.image_url(:thumb).to_s, :class => 'gallery_photo' %>
+        </div>
+      <% end %>
+
+<p>
+  <b>Title:</b>
+  <%= @photo.title %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%= @photo.caption %>
+</p>
+
+<p>
+  <b>Gallery:</b>
+  <%= @photo.gallery_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_gallery_photo_path(@photo.gallery_id) %> | <%= link_to 'Back', gallery_path(@photo.gallery_id) %>
