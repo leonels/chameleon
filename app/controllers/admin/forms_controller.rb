@@ -1,10 +1,9 @@
 class Admin::FormsController < AdminController
-  def index
-    @forms = Form.all
+  load_and_authorize_resource
 
+  def index
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @forms }
+      format.html
     end
   end
 
