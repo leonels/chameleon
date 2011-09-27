@@ -1,10 +1,10 @@
 class Admin::ImagesController < AdminController
-  def index
-    @images = Image.all
 
+  load_and_authorize_resource
+
+  def index
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @images }
+      format.html
     end
   end
 

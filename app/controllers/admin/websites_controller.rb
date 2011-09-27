@@ -36,8 +36,6 @@ class Admin::WebsitesController < AdminController
     end
   end
 
-  # GET /websites/new
-  # GET /websites/new.json
   def new
     @website = Website.new
 
@@ -47,13 +45,10 @@ class Admin::WebsitesController < AdminController
     end
   end
 
-  # GET /websites/1/edit
   def edit
     @website = Website.find(params[:id])
   end
 
-  # POST /websites
-  # POST /websites.json
   def create
     @website = Website.new(params[:website])
 
@@ -68,8 +63,6 @@ class Admin::WebsitesController < AdminController
     end
   end
 
-  # PUT /websites/1
-  # PUT /websites/1.json
   def update
     @website = Website.find(params[:id])
 
@@ -84,8 +77,6 @@ class Admin::WebsitesController < AdminController
     end
   end
 
-  # DELETE /websites/1
-  # DELETE /websites/1.json
   def destroy
     @website = Website.find(params[:id])
     @website.destroy
