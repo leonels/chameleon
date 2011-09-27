@@ -67,7 +67,7 @@ $(document).ready(function() {
 			<!-- <li><%= link_to 'Websites', root_url(:subdomain => false) %></li> -->
 			<% if current_website %>
 			  <li><%= current_website.name %> (
-			    <%= link_to 'Pages', admin_website_path(current_website) %> |
+			    <%= link_to 'Pages', admin_pages_path %> |
 			    <%= link_to 'Images', admin_images_path %> | 
 			    <%= link_to 'Galleries', admin_galleries_path %> |
 			    <%= link_to 'Forms', admin_forms_path %> |

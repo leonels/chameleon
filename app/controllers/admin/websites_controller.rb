@@ -2,7 +2,7 @@
 # class Admin::WebsitesController < ApplicationController
 class Admin::WebsitesController < AdminController
   #before_filter :website_layout, :only => :show
-  
+  load_and_authorize_resource
   #def website_layout
   #  website = Website.find_by_subdomain(request.subdomain)
   #  if website.layout_name.nil?

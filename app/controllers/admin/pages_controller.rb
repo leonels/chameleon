@@ -2,7 +2,8 @@ class Admin::PagesController < AdminController
 
   before_filter :website_layout, :only => :show
   # before_filter :current_website
-  skip_before_filter :authorize, :only => [:show]
+  # skip_before_filter :authorize, :only => [:show]
+  load_and_authorize_resource
   
   #def website_layout
   #  website = Website.find_by_subdomain(request.subdomain)
@@ -25,23 +26,23 @@ class Admin::PagesController < AdminController
 #      format.html # index.html.erb
 #      format.json { render json: @pages }
 #    end
-    if params[:id]
-      @page = Page.find(params[:id])
-    else
-      @page = Page.find_by_page_type('homepage')  
-    end
+    # if params[:id]
+    #   @page = Page.find(params[:id])
+    # else
+    #   @page = Page.find_by_page_type('homepage')  
+    # end
 
     # @page = Page.find(params[:id])
-    @website = Website.find_by_subdomain(request.subdomain)
-    @pages = Page.where("website_id = ?", @website.id)
+    # @website = Website.find_by_subdomain(request.subdomain)
+    @pages = Page.where("website_id = ?", current_website.id)
 
     respond_to do |format|
-      unless website_layout == 'plain'
-        website = Website.find_by_subdomain(request.subdomain)
-        format.html { render :action => "show_" + website.layout_name }
-      else
+      # unless website_layout == 'plain'
+        # website = Website.find_by_subdomain(request.subdomain)
+        # format.html { render :action => "show_" + website.layout_name }
+      # else
         format.html
-      end
+      # end
       # format.json { render json: @page }
     end
 
