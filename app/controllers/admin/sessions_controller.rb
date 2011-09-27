@@ -22,8 +22,8 @@ class Admin::SessionsController < AdminController
   		session[:user_id] = user.id
   		session[:auth_token] = user.auth_token
   		
-  		website = Website.find_by_account_id(user.account_id)
-  		subdomain = website.subdomain
+  		# website = Website.find_by_account_id(user.account_id)
+  		# subdomain = website.subdomain
   		
   		# redirect_to websites_url(:subdomain => website.subdomain), :notice => 'Logged in!'
   		redirect_to admin_websites_url, :notice => 'Logged in!'

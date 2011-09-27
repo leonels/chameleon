@@ -39,18 +39,16 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
   end
 
-  # POST /accounts
-  # POST /accounts.json
   def create
     @account = Account.new(params[:account])
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render json: @account, status: :created, location: @account }
+        format.html { redirect_to admin_login_url, notice: 'Account was successfully created. Please login.' }
+        # format.json { render json: @account, status: :created, location: @account }
       else
         format.html { render action: "new", layout: "signup" }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
+        # format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
