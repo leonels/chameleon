@@ -27,8 +27,8 @@ table#websites td{
     </td>
     <td>
       <%= link_to 'Show Pages', root_url(:subdomain => website.subdomain) %><br />
-      <%= link_to 'Website Settings', edit_website_path(website) %><br />
-      <%= link_to 'Destroy', website, confirm: 'Are you sure?', method: :delete %>
+      <%= link_to 'Website Settings', edit_admin_website_path(website) %><br />
+      <%= link_to 'Destroy', admin_website_url(website), confirm: 'Are you sure?', method: :delete %>
     </td>
   </tr>
 <% end %>

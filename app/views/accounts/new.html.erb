@@ -15,10 +15,21 @@
     </div>
   <% end %>
 
-
+  <%= account_form.fields_for :websites do |website_form| %>
+  <fieldset>
+    <legend>Name your new Website!</legend>  
+	      <p><%= website_form.label :name, 'Website Name' %><br />
+	      <%= website_form.text_field :name %>
+	      <br />
+	      <span class="hint">Some hint.</span></p>
+				<p><%= website_form.label :subdomain %><br />
+				<%= website_form.text_field :subdomain %>
+				<br />
+				<span class="hint">Some hint.</span></p>
+  </fieldset>
+  <% end %>
 
   <table id="signup">
-  
   <%= account_form.fields_for :users do |user_form| %>
 	<tr>
 	  <td class="label">
@@ -86,5 +97,3 @@
   </div>
       
   <% end %>
-
-<%= link_to 'Back', accounts_path %>
