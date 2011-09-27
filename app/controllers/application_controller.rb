@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :authorize
+  # before_filter :authorize
   
   helper_method :current_website
   
@@ -56,10 +56,10 @@ class ApplicationController < ActionController::Base
     # end
   end
 
-  def authorize
-  	if current_user.nil?
-  		redirect_to login_path, :notice => 'Please log in'
-  	end
-  end
+  # def authorize
+  # 	if current_user.nil?
+  # 		redirect_to login_path, :notice => 'Please log in'
+  # 	end
+  # end
 
 end

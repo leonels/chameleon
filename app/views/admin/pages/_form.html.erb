@@ -47,7 +47,7 @@
         <% if form.nil? %>
           <%= link_to 'Add a contact form to this page', new_page_form_path(@page) %>
         <% else %>
-          This page contains a form <%= link_to 'Destroy', form, confirm: 'Are you sure?', method: :delete %>
+          This page contains a form <%= link_to 'Destroy', admin_form_url, confirm: 'Are you sure?', method: :delete %>
         <% end %>
        <% end %>
     </div>
@@ -75,7 +75,7 @@
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% map = Location.find_by_page_id(@page.id) %>
         <% if map.nil? %>
-          <%= link_to 'Add a map to this page', new_page_location_path(@page) %><br />
+          <%= link_to 'Add a map to this page', new_admin_page_location_path(@page) %><br />
         <% else %>
           This page contains a Map pointing to: <%= map.address %> | <%= check_box_tag 'remove_map', map.id %>remove map<br />
           <% unless (@page.locations).empty? %>

@@ -17,7 +17,7 @@
 
 <hr />
 
-<%= link_to 'Add a photo', new_gallery_photo_path(@gallery) %>
+<%= link_to 'Add a photo', new_admin_gallery_photo_path(@gallery) %>
 
 <hr />
 
@@ -101,7 +101,7 @@ ul.imggrid {
       
       <p>
         <%= photo.title %><br />
-        <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> | <%= link_to 'remove', photo, confirm: 'Are you sure?', method: :delete %>
+        <%= link_to 'edit', edit_admin_gallery_photo_path(@gallery, photo) %> | <%= link_to 'remove', admin_photo_url, confirm: 'Are you sure?', method: :delete %>
       </p>
     </li>
   <% end %>

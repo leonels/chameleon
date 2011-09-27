@@ -1,4 +1,4 @@
-class Admin::PagesController < Admin::BaseController
+class Admin::PagesController < AdminController
 
   before_filter :website_layout, :only => :show
   # before_filter :current_website

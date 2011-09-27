@@ -32,7 +32,7 @@ table#images th, table#images td{
     <% end %>
 
     <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Edit', edit_admin_image_path(image) %></td>
     <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -40,4 +40,4 @@ table#images th, table#images td{
 
 <br />
 
-<%= link_to 'New Image', new_image_path %>
+<%= link_to 'New Image', new_admin_image_path %>

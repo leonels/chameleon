@@ -32,13 +32,19 @@ table#galleries th, table#galleries td{
     <td><%= gallery.description %></td>
     <% page = Page.find(gallery.page_id) %>
     <td><%= page.title %></td>
-    <td><%= link_to 'Show', gallery %></td>
-    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', admin_gallery_path(gallery) %></td>
+    <td><%= link_to 'Edit', edit_admin_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', admin_gallery_path(gallery), confirm: 'Are you sure?', method: :delete %></td>
+    
+    
+    
+    
+    
+    
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Gallery', new_gallery_path %>
+<%= link_to 'New Gallery', new_admin_gallery_path %>

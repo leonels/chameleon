@@ -59,7 +59,7 @@ class AdminController < ApplicationController
 
   def authorize
   	if current_user.nil?
-  		redirect_to login_path, :notice => 'Please log in'
+  		redirect_to admin_login_path, :notice => 'Please log in'
   	end
   end
 

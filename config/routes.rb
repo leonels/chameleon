@@ -6,10 +6,6 @@ Chameleon::Application.routes.draw do
 
   require 'subdomain'
 
-  resources :websites do
-    resources :pages, :messages
-  end
-
   resources :pages do
     resources :locations, :galleries, :forms, :images
   end
@@ -28,14 +24,19 @@ Chameleon::Application.routes.draw do
   end
   resources :users
 
-  resources :messages
-
-
   namespace :admin do |admin|
     match '/' => 'dashboard#index'
+    resources :websites do
+      resources :pages, :messages
+    end
+
     resources :websites
     resources :pages
+    resources :pages do
+      resources :locations
+    end
     resources :sessions
+    resources :messages
     get 'login' => 'sessions#new', :as => 'login'
     get 'logout' => 'sessions#destroy', :as => 'logout'  
     resources :images

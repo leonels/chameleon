@@ -1,4 +1,4 @@
-class Admin::SessionsController < ApplicationController
+class Admin::SessionsController < AdminController
 
 	skip_before_filter :authorize, :only => [:new, :create]
 
