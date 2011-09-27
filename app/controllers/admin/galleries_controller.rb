@@ -1,16 +1,13 @@
 class Admin::GalleriesController < AdminController
 
-  def index
-    @galleries = Gallery.all
+  load_and_authorize_resource
 
+  def index
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @galleries }
+      format.html
     end
   end
 
-  # GET /galleries/1
-  # GET /galleries/1.json
   def show
     @gallery = Gallery.find(params[:id])
     @photos = Photo.all(:conditions => ["gallery_id == ?", params[:id]], :order => "created_at DESC")

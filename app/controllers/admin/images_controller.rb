@@ -8,8 +8,6 @@ class Admin::ImagesController < AdminController
     end
   end
 
-  # GET /images/1
-  # GET /images/1.json
   def show
     @image = Image.find(params[:id])
 
@@ -19,8 +17,6 @@ class Admin::ImagesController < AdminController
     end
   end
 
-  # GET /images/new
-  # GET /images/new.json
   def new
     @image = Image.new
 
@@ -30,14 +26,11 @@ class Admin::ImagesController < AdminController
     end
   end
 
-  # GET /images/1/edit
   def edit
     @image = Image.find(params[:id])
     @pages = current_website.pages
   end
 
-  # POST /images
-  # POST /images.json
   def create
     @image = Image.new(params[:image])
     @image.website_id = current_website.id

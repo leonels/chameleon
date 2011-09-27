@@ -28,6 +28,6 @@ class Ability
     can :manage, Website, :account_id => current_user.account_id
     can :manage, Page, :website_id => current_user.account.websites[0].id
     can :manage, Image, :website_id => current_user.account.websites[0].id
-
+    can :manage, Gallery, :website_id => current_user.account.websites[0].id
   end
 end
