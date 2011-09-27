@@ -33,7 +33,7 @@ table#images th, table#images td{
 
     <td><%= link_to 'Show', image %></td>
     <td><%= link_to 'Edit', edit_admin_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', admin_image_url(image), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

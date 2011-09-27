@@ -15,12 +15,8 @@
     </div>
   <% end %>
 
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny"><%= f.label :title %></p>
+      <%= f.label :title %>
       <%= f.text_field :title, :class => 'big field' %>
-    </div>
-  </div>
 
   <div class="block empty editing">
     <div class="editGuts">
@@ -29,9 +25,9 @@
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% image = Image.find_by_page_id(@page.id) %>
         <% if image.nil? %>
-          <%= link_to 'Add an image to this page', new_page_image_path(@page) %>
+          <%= link_to 'Add an image to this page', new_admin_page_image_path(@page) %>
         <% else %>
-          This page contains an image <%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %>
+          This page contains an image <%= link_to 'Destroy', admin_image_url(image), confirm: 'Are you sure?', method: :delete %>
           [Display image]
         <% end %>
        <% end %>

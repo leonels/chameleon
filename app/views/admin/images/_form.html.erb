@@ -1,4 +1,4 @@
-<%= form_for @image, :html => {:multipart => true} do |f| %>
+<%= form_for [:admin, @image], :html => {:multipart => true} do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -19,7 +19,7 @@
   <% unless params[:page_id] %>
   <div class="field">
 	  <%= f.label :page_id, 'Page' %><br />
-	  <%= f.collection_select :page_id, @pages, :id, :title %>
+	  <%= f.collection_select :page_id, @pages, :id, :title, {:include_blank => ' - Please select - '} %>
   </div>
   <% end %>
 

@@ -20,8 +20,9 @@ Chameleon::Application.routes.draw do
     resources :websites
     resources :pages
     resources :pages do
-      resources :locations
+      resources :locations, :galleries, :forms, :images
     end
+
     resources :sessions
     resources :messages
     get 'login' => 'sessions#new', :as => 'login'

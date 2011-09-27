@@ -9,7 +9,7 @@ class Admin::ImagesController < AdminController
   end
 
   def show
-    @image = Image.find(params[:id])
+    # @image = Image.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -18,8 +18,8 @@ class Admin::ImagesController < AdminController
   end
 
   def new
-    @image = Image.new
-
+    # @image = Image.new
+    @pages = Page.where("website_id = ?", current_website.id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @image }
@@ -27,12 +27,12 @@ class Admin::ImagesController < AdminController
   end
 
   def edit
-    @image = Image.find(params[:id])
+    # @image = Image.find(params[:id])
     @pages = current_website.pages
   end
 
   def create
-    @image = Image.new(params[:image])
+    # @image = Image.new(params[:image])
     @image.website_id = current_website.id
     if params[:page_id]
       @image.page_id = params[:page_id]
@@ -40,11 +40,11 @@ class Admin::ImagesController < AdminController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.json { render json: @image, status: :created, location: @image }
+        format.html { redirect_to admin_image_url(@image), notice: 'Image was successfully created.' }
+        # format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+        # format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +52,7 @@ class Admin::ImagesController < AdminController
   # PUT /images/1
   # PUT /images/1.json
   def update
-    @image = Image.find(params[:id])
+    # @image = Image.find(params[:id])
 
     respond_to do |format|
       if @image.update_attributes(params[:image])
@@ -68,12 +68,12 @@ class Admin::ImagesController < AdminController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
-    @image = Image.find(params[:id])
+    # @image = Image.find(params[:id])
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to images_url }
-      format.json { head :ok }
+      format.html { redirect_to admin_images_url, notice: 'Image was successfully deleted.' }
+      # format.json { head :ok }
     end
   end
 end
