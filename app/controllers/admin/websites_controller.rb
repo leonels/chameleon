@@ -1,5 +1,6 @@
-class WebsitesController < ApplicationController
-
+# class Admin::WebsitesController < Admin::BaseController
+# class Admin::WebsitesController < ApplicationController
+class Admin::WebsitesController < AdminController
   #before_filter :website_layout, :only => :show
   
   #def website_layout
@@ -16,13 +17,10 @@ class WebsitesController < ApplicationController
     # @website = Website.find_by_subdomain!(request.subdomain)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @websites }
+      format.html
     end
   end
 
-  # GET /websites/1
-  # GET /websites/1.json
   def show
     # @website = Website.find(params[:id])
     if params[:id].nil?
@@ -34,8 +32,7 @@ class WebsitesController < ApplicationController
     @pages = @website.pages
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @website }
+      format.html
     end
   end
 

@@ -1,0 +1,40 @@
+<% unless (@page.forms).empty? %>
+
+<p id="notice"><%= notice %></p>
+<h2><%= @page.forms[0].heading %></h2>
+<%= form_for @message, :url => {:controller => :contact, :action => :create, :permalink => params[:permalink]} do |f| %>
+  
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visitor_name, 'Your name' %><br />
+    <%= f.text_field :visitor_name %>
+  </div>
+  <div class="field">
+    <%= f.label :visitor_email, 'Your email' %><br />
+    <%= f.text_field :visitor_email %>
+  </div>
+  <div class="field">
+    <%= f.label :visitor_phone, 'Your phone' %><br />
+    <%= f.text_field :visitor_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit :disable_with => "Processing..." %>
+  </div>
+<% end %>
+
+<% end %>

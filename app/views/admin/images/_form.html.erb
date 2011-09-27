@@ -1,0 +1,32 @@
+<%= form_for @image, :html => {:multipart => true} do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :alt %><br />
+    <%= f.text_field :alt %>
+  </div>
+
+  <% unless params[:page_id] %>
+  <div class="field">
+	  <%= f.label :page_id, 'Page' %><br />
+	  <%= f.collection_select :page_id, @pages, :id, :title %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :src %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

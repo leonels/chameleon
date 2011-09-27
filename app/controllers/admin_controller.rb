@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::Base
+# class Admin::BaseController < ApplicationController
+class AdminController < ApplicationController
   protect_from_forgery
   
   include UrlHelper
@@ -7,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :authorize
   
-  helper_method :current_website
+  # helper_method :current_website
   
   # root_url(:subdomain => @website.subdomain)
   # root_url(:subdomain => false)
@@ -49,12 +50,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_website
-    @website = Website.find_by_account_id(current_user.account.id)
+  # def current_website
+    # @website = Website.find_by_account_id(current_user.account.id)
     # unless request.subdomain.empty?
     #   @website = Website.find_by_subdomain!(request.subdomain)
     # end
-  end
+  # end
 
   def authorize
   	if current_user.nil?

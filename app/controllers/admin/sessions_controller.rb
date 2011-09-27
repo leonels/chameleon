@@ -1,5 +1,5 @@
-class SessionsController < ApplicationController
-	
+class Admin::SessionsController < ApplicationController
+
 	skip_before_filter :authorize, :only => [:new, :create]
 
   # for use only for debugging
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
       session.delete(:user_id)
       session.delete(:auth_token)
-      redirect_to login_path, :notice => 'Logged out!'
+      redirect_to admin_login_path, :notice => 'Logged out!'
   end
   
 end

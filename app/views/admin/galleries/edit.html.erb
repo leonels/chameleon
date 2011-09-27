@@ -1,0 +1,10 @@
+<h1>Editing gallery</h1>
+
+<% if params[:page_id] %>
+  <%= render 'nested_form' %>  
+<% else %>
+  <%= render 'form' %>
+<% end %>
+
+<%= link_to 'Show', @gallery %> |
+<%= link_to 'Back', galleries_path %>

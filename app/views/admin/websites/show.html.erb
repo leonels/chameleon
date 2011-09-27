@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h2 class="rowTitle">Website Pages</h2>
+
+<p class="rowNote">some notes go here</p>
+
+<div class="addBar"><h3><%= link_to 'Add a new page', new_website_page_path(@website)  %></h3></div>
+
+<div id="wordsRow" class="contentRow">
+
+
+<div class="block populated">
+  <div class="previewGuts">
+    <p class="tiny">Website Name</p>
+    <h1 class="text"><%= @website.name %></h1>
+  </div>
+</div>
+
+<% @pages.each do |page| %>
+<div class="block empty">
+  <div class="emptyGuts">
+    <h1><%= page.title %></h1>
+    <p style="margin:0;"><%= link_to 'Edit', edit_page_path(page) %> | <%= link_to 'Destroy (cannot be undone)', page, confirm: 'Are you sure?', method: :delete %></p>
+  </div>
+</div>
+<% end %>
+
+
+<!-- <p><%= link_to 'All Websites', root_url(:subdomain => false) %></p> -->
+
+
+</div>

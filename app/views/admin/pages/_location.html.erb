@@ -1,0 +1,3 @@
+<% unless (@page.locations).empty? %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@page.locations[0].latitude}%2C#{@page.locations[0].longitude}" %>
+<% end %>

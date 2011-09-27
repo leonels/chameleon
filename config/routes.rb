@@ -1,15 +1,6 @@
 Chameleon::Application.routes.draw do
-  
-  resources :images
 
-  resources :galleries
-  resources :photos
-  resources :galleries do
-    resources :photos
-  end
-  
-  resources :messages
-  resources :locations
+  # get "dashboard/index"
 
   # resources :websites
 
@@ -22,32 +13,48 @@ Chameleon::Application.routes.draw do
   resources :pages do
     resources :locations, :galleries, :forms, :images
   end
-  resources :locations
-  resources :forms
   
-  resources :sessions
   resources :password_resets
   resources :password_change
   get 'signup' => 'accounts#new', :as => 'signup'
-  get 'login' => 'sessions#new', :as => 'login'
-  get 'logout' => 'sessions#destroy', :as => 'logout'  
-
 
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
-
-  match '/(:permalink)' => 'pages#show'
-
+  # match '/(:permalink)' => 'pages#show'
 
   resources :accounts do
     resources :users
   end
   resources :users
-  
-  constraints(Subdomain) do
-    match '/' => 'websites#show'
+
+  resources :messages
+
+
+  namespace :admin do |admin|
+    match '/' => 'dashboard#index'
+    resources :websites
+    resources :pages
+    resources :sessions
+    get 'login' => 'sessions#new', :as => 'login'
+    get 'logout' => 'sessions#destroy', :as => 'logout'  
+    resources :images
+    resources :galleries
+    resources :photos
+    resources :galleries do
+      resources :photos
+    end
+    resources :locations
+    resources :forms
   end
+
+
+
+
+  
+  # constraints(Subdomain) do
+  #   match '/' => 'websites#show'
+  # end
   
   # match '/' => 'websites#show', :constraints => { :subdomain => /.+/ }
   root :to => 'websites#index'

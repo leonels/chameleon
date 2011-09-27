@@ -1,0 +1,13 @@
+<% unless (@page.images).empty? %>
+  <style>
+  div.page_image{
+    float:right;
+  }
+  div.page_image img{
+    background-color:white;
+    border:1px solid #CCC;
+    padding:5px;
+  }
+  </style>
+  <div class="page_image"><%= image_tag @page.images[0].src_url(:medium).to_s %></div>
+<% end %>

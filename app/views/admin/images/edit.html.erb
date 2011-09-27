@@ -1,0 +1,10 @@
+<h1>Editing image</h1>
+
+<% if params[:page_id] %>
+  <%= render 'nested_form' %>  
+<% else %>
+  <%= render 'form' %>
+<% end %>
+
+<%= link_to 'Show', @image %> |
+<%= link_to 'Back', images_path %>

@@ -40,7 +40,7 @@ $(document).ready(function() {
 			</li>
 			<li> | </li>
 			<li>
-				<%= link_to 'Log out', logout_path, :class => 'blue' %>
+				<%= link_to 'Log out', admin_logout_path, :class => 'blue' %>
 			</li>
 			
 		</ul>
@@ -53,7 +53,6 @@ $(document).ready(function() {
 
 <div id="mainNav">
 	<div class="navCon">
-		
 		<ul>
 			<!-- / .upgrade, .account -->
 			
@@ -66,14 +65,14 @@ $(document).ready(function() {
 			<li class="current"><a href="/about" class="about"></a></li>
 			
 			<!-- <li><%= link_to 'Websites', root_url(:subdomain => false) %></li> -->
-			<% if @website %>
-			  <li><%= @website.name %> (
-			    <%= link_to 'Pages', website_path(@website) %> |
-			    <%= link_to 'Images', images_path %> | 
-			    <%= link_to 'Galleries', galleries_path %> |
-			    <%= link_to 'Forms', forms_path %> |
+			<% if current_website %>
+			  <li><%= current_website.name %> (
+			    <%= link_to 'Pages', admin_website_path(current_website) %> |
+			    <%= link_to 'Images', admin_images_path %> | 
+			    <%= link_to 'Galleries', admin_galleries_path %> |
+			    <%= link_to 'Forms', admin_forms_path %> |
 			    <%= link_to 'Messages', messages_path %> | 
-			    <%= link_to 'Website Settings', edit_website_path(@website) %>
+			    <%= link_to 'Website Settings', edit_admin_website_path(current_website) %>
 			    )</li>
 			<% end %>
 			

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Alt:</b>
+  <%= @image.alt %>
+</p>
+
+<%= debug @image %>
+
+<p>
+  <%= image_tag @image.src_url(:thumb).to_s %>
+</p>
+
+<p>
+  <%= image_tag @image.src_url(:small).to_s %>
+</p>
+
+<p>
+  <%= image_tag @image.src_url(:medium).to_s %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

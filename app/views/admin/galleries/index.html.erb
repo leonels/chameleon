@@ -1,0 +1,44 @@
+<h1>Listing galleries</h1>
+
+
+<style>
+table#galleries th, table#galleries td{
+  border:1px solid #CCC;
+  padding:5px;
+}
+</style>
+
+
+<table id="galleries">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Webpage</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td>
+      <% if gallery.photos[0] %>
+        <%= image_tag gallery.photos[0].image_url(:thumb).to_s %>
+      <% end %>
+    </td>
+    
+    <td><%= gallery.name %> (<%= gallery.photos.count %>)</td>
+    <td><%= gallery.description %></td>
+    <% page = Page.find(gallery.page_id) %>
+    <td><%= page.title %></td>
+    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gallery', new_gallery_path %>
