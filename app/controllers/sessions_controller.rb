@@ -25,7 +25,8 @@ class SessionsController < ApplicationController
   		website = Website.find_by_account_id(user.account_id)
   		subdomain = website.subdomain
   		
-  		redirect_to websites_url(:subdomain => website.subdomain), :notice => 'Logged in!'
+  		# redirect_to websites_url(:subdomain => website.subdomain), :notice => 'Logged in!'
+  		redirect_to websites_url, :notice => 'Logged in!'
   		# redirect_to root_url(:subdomain => subdomain = website.subdomain), :notice => 'Logged in!'
   		# redirect_to root_url(:subdomain => @website.subdomain), :notice => 'Logged in!'
   		# redirect_to root_url, :notice => 'Logged in!'

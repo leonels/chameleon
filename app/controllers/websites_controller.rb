@@ -13,7 +13,8 @@ class WebsitesController < ApplicationController
 
   def index
     @websites = Website.all(:conditions => ["account_id == ?", current_user.account_id])
-    @website = Website.find_by_subdomain!(request.subdomain)
+    # @website = Website.find_by_subdomain!(request.subdomain)
+    @website = Website.find_by_account_id(current_user.account.id)
 
     respond_to do |format|
       format.html # index.html.erb
