@@ -1,10 +1,9 @@
 class Admin::MessagesController < AdminController
-  def index
-    @messages = Message.all
+  load_and_authorize_resource
 
+  def index
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @messages }
+      format.html
     end
   end
 
