@@ -46,7 +46,7 @@ $(document).ready(function() {
 		</ul>
 		<p class="small">
 			<span id="portfolio_title">Your Business Name or Account Name</span> 
-			<span style="margin-left:4px; font-size:0.9em; color:#999;">(<a href="<%= pages_path %>" target="_blank" class="blue">View your website</a>)</span>
+			<span style="margin-left:4px; font-size:0.9em; color:#999;">(<%= link_to 'View your Website', root_url(:subdomain => current_website.subdomain), :target => '_blank', :class => 'blue' %>)</span>
 		</p>
 	</div>
 </div>

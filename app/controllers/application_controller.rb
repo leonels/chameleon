@@ -50,7 +50,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_website
-    @website = Website.find_by_account_id(current_user.account.id)
+    if current_user
+      # @website = Website.find_by_account_id(current_user.account.id)
+      website = Website.find_by_account_id(current_user.account.id)
+    else
+      # @website = Website.find_by_subdomain(request.subdomain)
+      website = Website.find_by_subdomain(request.subdomain)
+    end
     # unless request.subdomain.empty?
     #   @website = Website.find_by_subdomain!(request.subdomain)
     # end

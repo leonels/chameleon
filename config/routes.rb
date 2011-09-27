@@ -6,19 +6,6 @@ Chameleon::Application.routes.draw do
 
   require 'subdomain'
 
-  resources :pages do
-    resources :locations, :galleries, :forms, :images
-  end
-  
-  resources :password_resets
-  resources :password_change
-  get 'signup' => 'accounts#new', :as => 'signup'
-
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
-
-  # match '/(:permalink)' => 'pages#show'
-
   resources :accounts do
     resources :users
   end
@@ -49,16 +36,25 @@ Chameleon::Application.routes.draw do
     resources :forms
   end
 
-
-
-
+  resources :pages do
+    resources :locations, :galleries, :forms, :images
+  end
   
+  resources :password_resets
+  resources :password_change
+  get 'signup' => 'accounts#new', :as => 'signup'
+
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+
+  match '/(:permalink)' => 'pages#show'
+
   # constraints(Subdomain) do
   #   match '/' => 'websites#show'
   # end
   
   # match '/' => 'websites#show', :constraints => { :subdomain => /.+/ }
-  root :to => 'websites#index'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

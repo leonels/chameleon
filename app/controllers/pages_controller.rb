@@ -54,22 +54,29 @@ class PagesController < ApplicationController
     elsif params[:id]
       @page = Page.find(params[:id])
     else
+      @page = Page.find_by_permalink('homepage')
+      # result = Page.all(:conditions => ['website_id = ? AND title = "homepage"', current_website.id])
       # should redirect to homepage
-      redirect_to login_path, :notice => 'Please log in'
-      return
+      # redirect_to login_path, :notice => 'Please log in'
+      # return
     end
-    @website = Website.find_by_subdomain(request.subdomain)
-    @pages = Page.where("website_id = ?", @website.id)
+
+    # @website = Website.find_by_subdomain(request.subdomain)
+    @pages = Page.where("website_id = ?", current_website.id)
 
     @message = Message.new
-    owner = User.find_by_account_id(@website.account_id)
+    # owner = User.find_by_account_id(@website.account_id)
+    owner = User.find_by_account_id(current_website.account_id)
     @to = owner.email
-    @subject = "From your Website: " + @website.name
+    # @subject = "From your Website: " + @website.name
+    @subject = "From your Website: " + current_website.name
 
     respond_to do |format|
-      unless website_layout == 'plain'
-        website = Website.find_by_subdomain(request.subdomain)
-        format.html { render :action => "show_" + website.layout_name }
+      # unless @website.layout_name.nil?
+      unless current_website.layout_name.nil?
+        # website = Website.find_by_subdomain(request.subdomain)
+        # format.html { render :action => "show_" + @website.layout_name }
+        format.html { render :action => "show_" + current_website.layout_name }
       else
         format.html
       end
