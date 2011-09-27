@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chameleon</title>
+  <%=
+  # stylesheet_link_tag    "app"
+  %>
+  <%= stylesheet_link_tag "fancybox" %>
+
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  
+	/* Apply fancybox to multiple items */
+	
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+});
+</script>
+
+
+</head>
+<body>
+		<ul>
+      <li>
+        <%= current_website.name %> <%= link_to 'View your Website', root_url(:subdomain => current_website.subdomain), :target => '_blank' %>
+      </li>			
+			<li>
+			  Signed in as <%= current_user.username %>
+			</li>
+			<li>
+				<%= link_to 'Log out', admin_logout_path %>
+			</li>
+		</ul>
+
+		<ul>
+	    <li><%= link_to 'Pages', admin_pages_path %></li>
+	    <li><%= link_to 'Images', admin_images_path %></li>
+			<li><%= link_to 'Galleries', admin_galleries_path %></li>
+			<li><%= link_to 'Forms', admin_forms_path %></li>
+			<li><%= link_to 'Messages', admin_messages_path %></li>
+			<li><%= link_to 'Website Settings', edit_admin_website_path(current_website) %></li>
+		</ul>
+
+
+<div id="container">
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</div>
+
+
+<div id="footer">
+	<p> &copy; 2011 LeonelOnRails</p>
+</div>
+
+</body>
+</html>

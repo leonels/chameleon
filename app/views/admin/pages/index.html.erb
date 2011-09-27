@@ -1,28 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h2>Website Pages</h2>
 
-<h2 class="rowTitle">Website Pages</h2>
-
-<p class="rowNote">You should make sure the HTML being embedded is safe. Validate! Maybe allow only P B I U UL LI OL and iframe from Google Maps. Or have a form "enter your Google Map HTML code"</p>
-
-<div class="addBar"><h3><%= link_to 'Add a new page', new_admin_website_page_path(current_website)  %></h3></div>
+<p><%= link_to 'Add a new page', new_admin_website_page_path(current_website)  %></p>
 
 <div id="wordsRow" class="contentRow">
 
-
-<div class="block populated">
-  <div class="previewGuts">
-    <p class="tiny">Website Name</p>
-    <h1 class="text"><%= current_website.name %></h1>
-  </div>
-</div>
-
 <% @pages.each do |page| %>
-<div class="block empty">
-  <div class="emptyGuts">
-    <h1><%= page.title %></h1>
-    <p style="margin:0;"><%= link_to 'Edit', edit_admin_page_path(page) %> | <%= link_to 'Destroy (cannot be undone)', page, confirm: 'Are you sure?', method: :delete %></p>
-  </div>
-</div>
+    <li>
+      <%= page.title %> / <%= link_to 'Edit', edit_admin_page_path(page) %> | <%= link_to 'Destroy (cannot be undone)', page, confirm: 'Are you sure?', method: :delete %>
+    </li>
 <% end %>
 
 

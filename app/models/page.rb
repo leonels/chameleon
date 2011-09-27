@@ -7,8 +7,8 @@ class Page < ActiveRecord::Base
   accepts_nested_attributes_for :locations
   
   validates :title, :presence => true
-  validates :title, :uniqueness => true
+  validates :title, :uniqueness => {:scope => :website_id}
   validates :permalink, :presence => true
-  validates :permalink, :uniqueness => true
+  validates :permalink, :uniqueness => {:scope => :website_id}
   validates :website_id, :presence => true
 end

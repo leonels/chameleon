@@ -70,7 +70,7 @@ class Admin::MessagesController < AdminController
     @message.destroy
 
     respond_to do |format|
-      format.html { redirect_to messages_url }
+      format.html { redirect_to admin_messages_url }
       format.json { head :ok }
     end
   end

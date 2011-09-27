@@ -13,20 +13,14 @@ class ApplicationController < ActionController::Base
   # root_url(:subdomain => false)
   
   def website_layout
-    
     unless request.subdomain.empty?
-
-    
-    website = Website.find_by_subdomain(request.subdomain)
-    if website.layout_name.nil?
-      self.class.layout 'plain'
-    else
-      self.class.layout website.layout_name
+      website = Website.find_by_subdomain(request.subdomain)
+      if website.layout_name.nil?
+        self.class.layout 'standard'
+      else
+        self.class.layout website.layout_name
+      end
     end
-    
-    
-    end
-    
   end
   
   private

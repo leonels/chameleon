@@ -68,11 +68,11 @@ class Admin::WebsitesController < AdminController
 
     respond_to do |format|
       if @website.update_attributes(params[:website])
-        format.html { redirect_to @website, notice: 'Website was successfully updated.' }
-        format.json { head :ok }
+        format.html { redirect_to admin_website_path(@website), notice: 'Website was successfully updated.' }
+        # format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @website.errors, status: :unprocessable_entity }
+        # format.json { render json: @website.errors, status: :unprocessable_entity }
       end
     end
   end

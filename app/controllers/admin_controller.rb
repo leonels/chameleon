@@ -1,6 +1,9 @@
 # class Admin::BaseController < ApplicationController
 class AdminController < ApplicationController
+
   protect_from_forgery
+
+  layout 'admin/application'
   
   include UrlHelper
 

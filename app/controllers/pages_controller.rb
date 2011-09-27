@@ -49,12 +49,12 @@ class PagesController < ApplicationController
 
   def show
     if params[:permalink]
-      @page = Page.find_by_permalink(params[:permalink])
+      @page = Page.find_by_permalink_and_website_id(params[:permalink], current_website.id)
       raise ActiveRecord::RecordNotFound, "Page not found" if @page.nil?
     elsif params[:id]
       @page = Page.find(params[:id])
     else
-      @page = Page.find_by_permalink('homepage')
+      @page = Page.find_by_permalink_and_website_id('homepage', current_website.id)
       # result = Page.all(:conditions => ['website_id = ? AND title = "homepage"', current_website.id])
       # should redirect to homepage
       # redirect_to login_path, :notice => 'Please log in'
@@ -100,14 +100,14 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
-  # POST /pages
-  # POST /pages.json
   def create
     # @page = Page.new(params[:page])
     @website = Website.find_by_subdomain(request.subdomain)
     # @website = Website.find(params[:website_id])
     @page = @website.pages.build(params[:page])
 
+    # YOU ALSO NEED TO TRIM ANYTHING OTHER THAN ALPHANUMERIC CHARACTERS OR DASHES
+    # DO THE SAME ON update
     trimmed = @page.title.gsub(/\s+/,"")
     downcased = trimmed.downcase
     @page.permalink = downcased
@@ -124,8 +124,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # PUT /pages/1
-  # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
     if params[:remove_map]

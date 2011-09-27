@@ -44,10 +44,13 @@ Chameleon::Application.routes.draw do
   resources :password_change
   get 'signup' => 'accounts#new', :as => 'signup'
 
+  match '/(:permalink)' => 'pages#show'
+
+  # if you want this to kick in, it needs to go above the match permalink thing
+  # if you do that, then you'll have to prohibit pages from being titled contact or
+  # whatever you choose
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
-
-  match '/(:permalink)' => 'pages#show'
 
   # constraints(Subdomain) do
   #   match '/' => 'websites#show'

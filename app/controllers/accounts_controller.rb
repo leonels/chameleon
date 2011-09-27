@@ -24,6 +24,10 @@ class AccountsController < ApplicationController
     @account = Account.new
     @account.users.build
     @account.websites.build
+    # @account.websites.build.pages.build
+    # @account.websites.pages.build
+    # website = @account.websites.build
+    # website.pages.build    
     
     respond_to do |format|
       format.html {render :layout => 'signup'}
@@ -37,6 +41,8 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params[:account])
+    # @account.websites[0].pages[0].title = "homepage"
+    # @account.websites[0].pages[0].body = ""
 
     respond_to do |format|
       if @account.save

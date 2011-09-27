@@ -98,9 +98,10 @@ class Admin::PagesController < AdminController
   # POST /pages.json
   def create
     # @page = Page.new(params[:page])
-    @website = Website.find_by_subdomain(request.subdomain)
+    # @website = Website.find_by_subdomain(request.subdomain)
     # @website = Website.find(params[:website_id])
-    @page = @website.pages.build(params[:page])
+    # @page = @website.pages.build(params[:page])
+    @page = current_website.pages.build(params[:page])
 
     trimmed = @page.title.gsub(/\s+/,"")
     downcased = trimmed.downcase
@@ -108,12 +109,12 @@ class Admin::PagesController < AdminController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to website_url(@website), notice: 'Page was successfully created.' }
+        format.html { redirect_to admin_website_url(current_website), notice: 'Page was successfully created.' }
         # format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
+        # format.json { render json: @page, status: :created, location: @page }
       else
         format.html { render action: "new" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        # format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
   end
