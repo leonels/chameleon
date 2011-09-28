@@ -1,5 +1,5 @@
 <h3>This is the nested form</h3>
-<%= form_for @image, :url => page_images_path(@page), :html => {:multipart => true} do |f| %>
+<%= form_for @image, :url => admin_page_images_path(@page), :html => {:multipart => true} do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -20,6 +20,6 @@
     <%= f.file_field :src %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Upload', :disable_with => "Processing..." %>
   </div>
 <% end %>
