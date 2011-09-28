@@ -30,7 +30,8 @@ table{border-collapse:collapse;border-spacing:0;}
 #wrapper {
 	position: relative;
 	margin: 0 auto;
-	width: 980px;
+	/* width: 980px; */
+	width:880px;
 }
 #main {
 	z-index: 0;
@@ -134,7 +135,7 @@ a:hover {
 #header {
 	position: relative;
 	padding: 140px 0 0 0;
-	background: url(teach/iteachmiami-header.jpg) no-repeat;
+	background: url(1/logo.jpg) no-repeat;
 }
 #title {
 	text-indent: -9999px;
@@ -214,7 +215,8 @@ a:hover {
 #access {
 	position: absolute;
 	z-index: 1;
-	width: 980px;
+	/* width: 980px; */
+	width: 880px;
 }
 #access .menu-header,
 div.menu {
@@ -407,7 +409,8 @@ div.menu li {
 /* ABOUT */
 #post-2 #lcol {
 	padding-right: 20px;
-	width: 600px;
+	/* width: 600px; */
+	width: 500px;
 	float: left;
 }
 #post-2 #rcol {

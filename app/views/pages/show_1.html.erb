@@ -6,16 +6,17 @@
 						<div id="lcol">
 <h2><%= @page.title %></h2>
 
-<%= @page.body %>
+<%= simple_format @page.body %>
 
-<% unless (@page.locations).empty? %>
-<%= @page.locations %>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@page.locations[0].latitude}%2C#{@page.locations[0].longitude}" %>
-<% end %>
+<%= render 'pages/images' %>
+
+<%= render 'pages/galleries' %>
+
+<%= render 'pages/location' %>
+
+<%= render 'pages/contact' %>
 
 
-<% if true %>
-<% end %>
 
 </div>
 
