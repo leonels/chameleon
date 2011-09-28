@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916221752) do
+ActiveRecord::Schema.define(:version => 20110928141246) do
 
   create_table "accounts", :force => true do |t|
     t.datetime "created_at"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20110916221752) do
     t.string   "visitor_name"
     t.string   "visitor_email"
     t.string   "visitor_phone"
+    t.datetime "read_at"
   end
 
   create_table "pages", :force => true do |t|

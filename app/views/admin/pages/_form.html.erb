@@ -1,5 +1,3 @@
-<div id="wordsRow" class="contentRow">
-
 <p id="notice"><%= notice %></p>
 
 <%= form_for [:admin, @page] do |f| %>
@@ -18,10 +16,7 @@
       <%= f.label :title %>
       <%= f.text_field :title, :class => 'big field' %>
 
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny">Extra features</p>
-
+      <p>
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% image = Image.find_by_page_id(@page.id) %>
         <% if image.nil? %>
@@ -31,13 +26,9 @@
           [Display image]
         <% end %>
        <% end %>
-    
-    </div>
-  </div>
+       </p>
 
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny">Extra features</p>
+      <p>
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% form = Form.find_by_page_id(@page.id) %>
         <% if form.nil? %>
@@ -46,13 +37,9 @@
           This page contains a form <%= link_to 'Destroy', admin_form_url(form), confirm: 'Are you sure?', method: :delete %>
         <% end %>
        <% end %>
-    </div>
-  </div>
+       </p>
 
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny">Extra features</p>
-
+      <p>
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% gallery = Gallery.find_by_page_id(@page.id) %>
         <% if gallery.nil? %>
@@ -61,13 +48,9 @@
           This page contains a photo gallery
         <% end %>
        <% end %>
+       </p>
 
-    </div>
-  </div>
-
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny">Extra features</p>
+      <p>
       <% if params[:action] == 'edit' or params[:action] == 'update' %>
         <% map = Location.find_by_page_id(@page.id) %>
         <% if map.nil? %>
@@ -79,19 +62,12 @@
           <% end %>
         <% end %>
       <% end %>
-    </div>
-  </div>
-  
-  <div class="block empty editing">
-    <div class="editGuts">
-      <p class="tiny"><%= f.label :body %></p>
+      </p>
+
+      <%= f.label :body %>
       <%= f.text_area :body, :class => 'field', :style => "width:98%;" %>
-    </div>
-  </div>
 
   <div class="actions">
-    <%= f.submit :class => 'submitpage' %>
+    <%= f.submit :disable_with => "Processing...", :class => 'submitpage' %>
   </div>
 <% end %>
-
-</div><!-- # wordsRow -->

@@ -46,7 +46,7 @@ $(document).ready(function() {
 	    <li><%= link_to 'Images', admin_images_path %></li>
 			<li><%= link_to 'Galleries', admin_galleries_path %></li>
 			<li><%= link_to 'Forms', admin_forms_path %></li>
-			<li><%= link_to 'Messages', admin_messages_path %></li>
+			<li><%= link_to 'Messages', admin_messages_path %> (<%= unread_messages_count %>)</li>
 			<li><%= link_to 'Website Settings', edit_admin_website_path(current_website) %></li>
 		</ul>
 

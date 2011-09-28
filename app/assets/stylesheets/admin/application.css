@@ -1,3 +1,21 @@
+body{
+  font-family:Helvetica, Arial, Tahoma, sans-serif;
+  font-size:10pt;
+}
+
 p.notice{
   color:green;
+}
+
+table{
+  border-collapse:collapse;
+}
+
+table#messages tr.unread{
+  background-color:white;
+  font-weight:bold;
+}
+
+table#messages tr.read{
+  background-color:lavender;
 }

@@ -9,9 +9,10 @@ class Admin::MessagesController < AdminController
 
   def show
     # @message = Message.find(params[:id])
+    @message.update_attributes(:read_at => Time.now)
     respond_to do |format|
       format.html
-      format.json { render json: @message }
+      # format.json { render json: @message }
     end
   end
 
