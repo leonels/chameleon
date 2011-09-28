@@ -29,6 +29,8 @@ $(document).ready(function() {
 
 </head>
 <body>
+<%= debug request.referer %>
+<%= debug request.referrer %>
 		<ul>
       <li>
         Website: <%= current_website.name %> <%= link_to 'View your Website', root_url(:subdomain => current_website.subdomain), :target => '_blank' %>

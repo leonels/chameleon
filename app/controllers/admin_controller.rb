@@ -63,7 +63,8 @@ class AdminController < ApplicationController
   end
 
   def unread_messages_count
-    Message.all(:conditions => ['website_id = ? AND read_at = ?', current_website.id, nil]).count
+    # Message.all(:conditions => ['website_id = ? AND read_at = ?', current_website.id, nil]).count
+    Message.where('website_id = ? AND read_at IS NULL', current_website.id).count
   end
 
 end
