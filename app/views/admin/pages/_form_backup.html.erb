@@ -1,4 +1,6 @@
-<%= form_for(@page) do |f| %>
+<p id="notice"><%= notice %></p>
+
+<%= form_for [:admin, @page] do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -11,15 +13,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => 'big field' %>
+
+      <div style="background-color:lightgreen;margin:10px;padding:10px;">
+      Add to page:
+      <ul>
+      <li>
+      <% if params[:action] == 'edit' or params[:action] == 'update' %>
+        <% image = Image.find_by_page_id(@page.id) %>
+        <% if image.nil? %>
+          <%= link_to 'Image', new_admin_page_image_path(@page) %>
+        <% else %>
+          This page contains an image <%= link_to 'Delete', admin_image_url(image), confirm: 'Are you sure?', method: :delete %>
+          <%= image_tag @page.images[0].src_url(:thumb).to_s %>
+        <% end %>
+       <% end %>
+       </li>
+
+      <li>
+      <% if params[:action] == 'edit' or params[:action] == 'update' %>
+        <% form = Form.find_by_page_id(@page.id) %>
+        <% if form.nil? %>
+          <%= link_to 'Contact form', new_admin_page_form_path(@page) %>
+        <% else %>
+          This page contains a form <%= link_to 'Remove', admin_form_url(form), confirm: 'Are you sure?', method: :delete %>
+        <% end %>
+       <% end %>
+       </li>
+
+      <li>
+      <% if params[:action] == 'edit' or params[:action] == 'update' %>
+        <% gallery = Gallery.find_by_page_id(@page.id) %>
+        <% if gallery.nil? %>
+          <%= link_to 'Photo gallery', new_page_gallery_path(@page) %>
+        <% else %>
+          This page contains a photo gallery
+        <% end %>
+      <% end %>
+      </li>
+
+      <li>
+      <% if params[:action] == 'edit' or params[:action] == 'update' %>
+        <% map = Location.find_by_page_id(@page.id) %>
+        <% if map.nil? %>
+          <%= link_to 'Map', new_admin_page_location_path(@page) %><br />
+        <% else %>
+          This page contains a Map pointing to: <%= map.address %> | <%= check_box_tag 'remove_map', map.id %>remove map<br />
+          <% unless (@page.locations).empty? %>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@page.locations[0].latitude}%2C#{@page.locations[0].longitude}" %>
+          <% end %>
+        <% end %>
+      <% end %>
+      </li>
+      </ul>
+      </div>
+
+      <%= f.label :body %>
+      <%= f.text_area :body, :class => 'field', :style => "width:98%;" %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :disable_with => "Processing...", :class => 'submitpage' %>
   </div>
 <% end %>
