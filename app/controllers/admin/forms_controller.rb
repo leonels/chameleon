@@ -27,7 +27,7 @@ class Admin::FormsController < AdminController
 
   def edit
     # @form = Form.find(params[:id])
-    @pages = Page.all
+    # @pages = Page.all
   end
 
   def create
@@ -54,7 +54,8 @@ class Admin::FormsController < AdminController
     # @form = Form.find(params[:id])
     respond_to do |format|
       if @form.update_attributes(params[:form])
-        format.html { redirect_to @form, notice: 'Form was successfully updated.' }
+        # format.html { redirect_to edit_admin_page_url(params[:page_id]), notice: 'Form was successfully updated.' }
+        format.html { redirect_to edit_admin_page_url(@form.page_id), notice: 'Form was successfully updated.' }
         # format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -67,7 +68,8 @@ class Admin::FormsController < AdminController
     # @form = Form.find(params[:id])
     @form.destroy
     respond_to do |format|
-      format.html { redirect_to admin_website_url(current_website), notice: 'Form has been deleted.' }
+      format.html { redirect_to edit_admin_page_url(params[:page_id]), notice: 'Form was successfully deleted.' }
+      # format.html { redirect_to admin_website_url(current_website), notice: 'Form has been deleted.' }
       # format.html { redirect_to forms_url }
       # format.json { head :ok }
     end

@@ -1,4 +1,5 @@
 class Admin::LocationsController < AdminController
+  load_and_authorize_resource
   def index
     @locations = Location.all
 
@@ -19,8 +20,6 @@ class Admin::LocationsController < AdminController
     end
   end
 
-  # GET /locations/new
-  # GET /locations/new.json
   def new
     @location = Location.new
 
@@ -30,30 +29,26 @@ class Admin::LocationsController < AdminController
     end
   end
 
-  # GET /locations/1/edit
   def edit
-    @location = Location.find(params[:id])
+    # @location = Location.find(params[:id])
   end
 
-  # POST /locations
-  # POST /locations.json
   def create
-    @location = Location.new(params[:location])
+    # @location = Location.new(params[:location])
     @location.page_id = params[:page_id]
     
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render json: @location, status: :created, location: @location }
+        format.html { redirect_to edit_admin_page_url(params[:page_id]), notice: 'Location was successfully created.' }
+        # format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        # format.json { render json: @location, status: :created, location: @location }
       else
         format.html { render action: "new" }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
+        # format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /locations/1
-  # PUT /locations/1.json
   def update
     @location = Location.find(params[:id])
 

@@ -1,4 +1,4 @@
-<%= form_for([@gallery, @photo], :html => {:multipart => true}) do |f| %>
+<%= form_for([:admin, @gallery, @photo], :html => {:multipart => true}) do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -19,6 +19,6 @@
     <%= f.file_field :image %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Upload photo', :disable_with => "Processing..." %>
   </div>
 <% end %>

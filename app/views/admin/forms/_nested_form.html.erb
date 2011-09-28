@@ -1,4 +1,5 @@
-<%= form_for @form, :url => admin_page_forms_path(@page) do |f| %>
+<h3>nested form</h3>
+<%= form_for @form, :url => admin_forms_path(@page) do |f| %>
   <% if @form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>

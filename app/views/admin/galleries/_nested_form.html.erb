@@ -1,4 +1,6 @@
-<%= form_for(@gallery, :url => page_galleries_path(@page)) do |f| %>
+<h3>i'm the nested one</h3>
+
+<%= form_for @gallery, :url => admin_page_galleries_path(@page) do |f| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
@@ -21,6 +23,6 @@
     <%= f.text_area :description, :rows => 6 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :disable_with => "Processing..." %>
   </div>
 <% end %>

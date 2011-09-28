@@ -31,5 +31,7 @@ class Ability
     can :manage, Gallery, :website_id => current_user.account.websites[0].id
     can :manage, Form, :website_id => current_user.account.websites[0].id
     can :manage, Message, :website_id => current_user.account.websites[0].id
+    can :manage, Location, :website_id => current_user.account.websites[0].id
+    can :manage, Photo, :website_id => current_user.account.websites[0].id
   end
 end

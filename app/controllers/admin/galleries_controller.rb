@@ -18,18 +18,14 @@ class Admin::GalleriesController < AdminController
     end
   end
 
-  # GET /galleries/new
-  # GET /galleries/new.json
   def new
-    @gallery = Gallery.new
-
+    # @gallery = Gallery.new
     unless params[:page_id]
       @pages = Page.all
     end
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @gallery }
+      format.html
+      # format.json { render json: @gallery }
     end
   end
 
@@ -39,26 +35,21 @@ class Admin::GalleriesController < AdminController
     @pages = Page.all
   end
 
-  # POST /galleries
-  # POST /galleries.json
   def create
     # @gallery = Gallery.new(params[:gallery])
-    @gallery = Gallery.new(params[:gallery])
+    # @gallery = Gallery.new(params[:gallery])
     @gallery.page_id = params[:page_id]
-
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
-        format.json { render json: @gallery, status: :created, location: @gallery }
+        format.html { redirect_to admin_gallery_url(@gallery), notice: 'Gallery was successfully created.' }
+        # format.json { render json: @gallery, status: :created, location: @gallery }
       else
         format.html { render action: "new" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        # format.json { render json: @gallery.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /galleries/1
-  # PUT /galleries/1.json
   def update
     @gallery = Gallery.find(params[:id])
 

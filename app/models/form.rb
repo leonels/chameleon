@@ -4,5 +4,4 @@ class Form < ActiveRecord::Base
   
   validates :heading, :presence => true
   validates :page_id, :presence => true
-  
 end
