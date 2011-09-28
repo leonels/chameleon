@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 </head>
 <body>
-<%= debug request.referer %>
+<%= debug params %>
 <%= debug request.referrer %>
 		<ul>
       <li>
@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 		<ul>
 	    <li><%= link_to 'Pages', admin_pages_path %></li>
-	    <li><%= link_to 'Images', admin_images_path %></li>
+	    <!-- <li><%= link_to 'Images', admin_images_path %></li> -->
 			<li><%= link_to 'Galleries', admin_galleries_path %></li>
 			<li><%= link_to 'Forms', admin_forms_path %></li>
 			<li><%= link_to 'Messages', admin_messages_path %>

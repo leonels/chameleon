@@ -40,7 +40,8 @@ class Admin::FormsController < AdminController
 
     respond_to do |format|
       if @form.save
-        format.html { redirect_to @form, notice: 'Form was successfully created.' }
+        format.html { redirect_to edit_admin_page_url(params[:page_id]), notice: 'Form was successfully created.' }
+        # format.html { redirect_to @form, notice: 'Form was successfully created.' }
         # format.json { render json: @form, status: :created, location: @form }
       else
         format.html { render action: "new" }

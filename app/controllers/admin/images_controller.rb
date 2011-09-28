@@ -40,7 +40,9 @@ class Admin::ImagesController < AdminController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to admin_image_url(@image), notice: 'Image was successfully created.' }
+        format.html { redirect_to edit_admin_page_url(params[:page_id]), notice: 'Image was successfully created.' }
+        # format.html { redirect_to (:back), notice: 'Image was successfully created.' }
+        # format.html { redirect_to admin_image_url(@image), notice: 'Image was successfully created.' }
         # format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
@@ -53,14 +55,13 @@ class Admin::ImagesController < AdminController
   # PUT /images/1.json
   def update
     # @image = Image.find(params[:id])
-
     respond_to do |format|
       if @image.update_attributes(params[:image])
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-        format.json { head :ok }
+        # format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+        # format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,7 +73,8 @@ class Admin::ImagesController < AdminController
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_images_url, notice: 'Image was successfully deleted.' }
+      format.html { redirect_to (:back), notice: 'Image was successfully deleted.' }
+      # format.html { redirect_to admin_images_url, notice: 'Image was successfully deleted.' }
       # format.json { head :ok }
     end
   end
