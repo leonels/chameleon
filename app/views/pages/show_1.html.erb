@@ -1,0 +1,42 @@
+<div id="main"> 
+		<div id="container"> 
+			<div id="content"> 
+   			<div id="post-2" class="post-2 page type-page status-publish hentry"> 
+					<div class="entry-content"> 
+						<div id="lcol">
+<h2><%= @page.title %></h2>
+
+<%= @page.body %>
+
+<% unless (@page.locations).empty? %>
+<%= @page.locations %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@page.locations[0].latitude}%2C#{@page.locations[0].longitude}" %>
+<% end %>
+
+
+<% if true %>
+<% end %>
+
+</div>
+
+
+
+<div id="rcol">
+<img src="<%= theme_asset_path %>master-plan-points.jpg" />
+<p>
+Rent-a-design is a Web design firm that specializes in affordable and practical Websites for small to medium-size businesses. 
+You rent the design and pay a small monthly subscription to keep on using it. There is no committment and you can cancel at any time.
+</p>
+<strong>For more information on how we can help you setup your online presence, <a class="blue" href="/" >click here</a></strong>
+</div>																	
+
+<div class="clear"></div> 
+					</div><!-- .entry-content --> 
+				</div><!-- #post-## --> 
+ 
+			</div><!-- #content --> 
+		</div><!-- #container --> 
+ 
+	</div><!-- #main --> 
+	</div><!-- wrapper --> 
+

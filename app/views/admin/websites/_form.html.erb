@@ -26,11 +26,14 @@
   
     <p class="tiny"><%= f.label :layout_name %></p>
     <%= f.select :layout_name,
-      [["Plain", 'plain'], # Texas Community Bank
+      [
+      ['1', '1'],
+      ["Plain", 'plain'], # Texas Community Bank
       ['Practical', 'practical'], # http://brookspumfreyresearch.co.uk/
       ["Standard", 'standard'], # 
       ['Strong', 'strong'], # http://www.neongroup.com.au/
-      ['Teach', 'teach']], # www.iteachmiami.com
+      ['Teach', 'teach'] # www.iteachmiami.com
+      ], 
       {:include_blank => ' - Please select - '}, {:class => 'bigselect'} %>
 
     <%= f.submit :class => 'submitwebsite' %>

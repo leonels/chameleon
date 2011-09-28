@@ -13,7 +13,7 @@ class Admin::WebsitesController < AdminController
   #end
 
   def index
-    @websites = Website.all(:conditions => ["account_id == ?", current_user.account_id])
+    # @websites = Website.all(:conditions => ["account_id == ?", current_user.account_id])
     # @website = Website.find_by_subdomain!(request.subdomain)
 
     respond_to do |format|
@@ -55,10 +55,10 @@ class Admin::WebsitesController < AdminController
     respond_to do |format|
       if @website.save
         format.html { redirect_to @website, notice: 'Website was successfully created.' }
-        format.json { render json: @website, status: :created, location: @website }
+        # format.json { render json: @website, status: :created, location: @website }
       else
         format.html { render action: "new" }
-        format.json { render json: @website.errors, status: :unprocessable_entity }
+        # format.json { render json: @website.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,7 +68,8 @@ class Admin::WebsitesController < AdminController
 
     respond_to do |format|
       if @website.update_attributes(params[:website])
-        format.html { redirect_to admin_website_path(@website), notice: 'Website was successfully updated.' }
+        format.html { redirect_to edit_admin_website_path(@website), notice: 'Website was successfully updated.' }
+        # format.html { redirect_to admin_website_path(@website), notice: 'Website was successfully updated.' }
         # format.json { head :ok }
       else
         format.html { render action: "edit" }
