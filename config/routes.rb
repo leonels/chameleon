@@ -45,7 +45,7 @@ Chameleon::Application.routes.draw do
   resources :password_change
   get 'signup' => 'accounts#new', :as => 'signup'
 
-  match '/(:permalink)' => 'pages#show'
+  # match '/(:permalink)' => 'pages#show'
 
   # if you want this to kick in, it needs to go above the match permalink thing
   # if you do that, then you'll have to prohibit pages from being titled contact or
@@ -53,12 +53,14 @@ Chameleon::Application.routes.draw do
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
-  # constraints(Subdomain) do
-  #   match '/' => 'websites#show'
-  # end
+  constraints(Subdomain) do
+    # match '/' => 'websites#show'
+    match '/(:permalink)' => 'pages#show'
+  end
   
   # match '/' => 'websites#show', :constraints => { :subdomain => /.+/ }
-  root :to => 'pages#index'
+  # root :to => 'sessions#index'
+  root :to => 'websites#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

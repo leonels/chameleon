@@ -1,42 +1,6 @@
-<h2 class="rowTitle">My Website</h2>
-<div id="wordsRow" class="contentRow">
+<%= link_to 'Click here to login', admin_login_url %>
 
-<style>
-table#websites{
-  margin-top:20px;
-}
-
-table#websites td{
-  padding:5px;
-}
-</style>
-
-<table id="websites">
 <% @websites.each do |website| %>
-  <tr>
-    <td>
-      <% if website.logo? %>
-        <%= image_tag website.logo_url(:thumb).to_s %>
-      <% else %>
-        <%= image_tag "upload-your-logo.png" %>
-      <% end %>
-    </td>
-    <td>
-      <%= link_to website.name, root_url(:subdomain => website.subdomain) %><br />
-      <%= website.subdomain %>
-    </td>
-    <td>
-      <%= link_to 'Show Pages', root_url(:subdomain => website.subdomain) %><br />
-      <%= link_to 'Website Settings', edit_website_path(website) %><br />
-      <%= link_to 'Destroy', website, confirm: 'Are you sure?', method: :delete %>
-    </td>
-  </tr>
+  <h1><%= website.name %></h1>
+  <p><%= website.subdomain %></p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Website', new_website_path %>
-
-</div>
-
