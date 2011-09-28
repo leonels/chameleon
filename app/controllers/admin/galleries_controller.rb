@@ -52,14 +52,13 @@ class Admin::GalleriesController < AdminController
 
   def update
     @gallery = Gallery.find(params[:id])
-
     respond_to do |format|
       if @gallery.update_attributes(params[:gallery])
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
-        format.json { head :ok }
+        format.html { redirect_to edit_admin_gallery_url(@gallery), notice: 'Gallery was successfully updated.' }
+        # format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        # format.json { render json: @gallery.errors, status: :unprocessable_entity }
       end
     end
   end
