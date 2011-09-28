@@ -2,6 +2,7 @@ class Admin::MessagesController < AdminController
   load_and_authorize_resource
 
   def index
+    @messages = Message.accessible_by(current_ability).order('created_at DESC')
     respond_to do |format|
       format.html
     end
