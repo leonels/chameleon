@@ -8,29 +8,28 @@ class Admin::MessagesController < AdminController
   end
 
   def show
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @message }
     end
   end
 
   def new
-    @message = Message.new
-
+    # @message = Message.new
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @message }
+      format.html
+      # format.json { render json: @message }
     end
   end
 
   def edit
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
   end
 
   def create
-    @message = Message.new(params[:message])
+    # @message = Message.new(params[:message])
     
     website = Website.find_by_subdomain(request.subdomain)
     @message.website_id = website.id
@@ -52,7 +51,7 @@ class Admin::MessagesController < AdminController
   end
 
   def update
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
@@ -66,7 +65,7 @@ class Admin::MessagesController < AdminController
   end
 
   def destroy
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
     @message.destroy
 
     respond_to do |format|

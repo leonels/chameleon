@@ -13,14 +13,17 @@ class ContactController < ApplicationController
   end
 
   def create
-    @website = Website.find_by_subdomain(request.subdomain)
-    @pages = Page.where("website_id = ?", @website.id)
+    # @website = Website.find_by_subdomain(request.subdomain)
+    # @pages = Page.where("website_id = ?", @website.id)
+    @pages = Page.where("website_id = ?", current_website.id)
 
     @message = Message.new(params[:message])
-    @message.website_id = @website.id
+    # @message.website_id = @website.id
+    @message.website_id = current_website.id
     # set to website owner email
     # @message.to = 'leonelsantos.me@gmail.com'
-    @message.to = current_user.email
+    @message.to = current_website.account.users[0].email
+    # @message.to = current_user.email
     # set to web app email
     @message.from = 'leonelsantos.me@gmail.com'
 
@@ -31,8 +34,10 @@ class ContactController < ApplicationController
     if @message.valid?
       @message.save
       # MessengerMailer.new_message(@message).deliver
-      Messenger.website_message(@website, @message).deliver
-      Messenger.website_message_thank_you(@website, @message).deliver
+      # Messenger.website_message(@website, @message).deliver
+      Messenger.website_message(current_website, @message).deliver
+      # Messenger.website_message_thank_you(@website, @message).deliver
+      Messenger.website_message_thank_you(current_website, @message).deliver
       
       # to do
       # change redirect url
