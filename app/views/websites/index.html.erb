@@ -1,6 +1,6 @@
 <%= link_to 'Click here to login', admin_login_url %>
 
 <% @websites.each do |website| %>
-  <h1><%= website.name %></h1>
-  <p><%= website.subdomain %></p>
+  <h1 style="margin:5px 5px 2px 0;"><%= website.name %></h1>
+  <p style="margin:2px 5px 2px 0;"><%= link_to website.subdomain, root_url(:subdomain => website.subdomain), :target => '_blank' %></p>
 <% end %>

@@ -12,8 +12,7 @@ table#messages th, table#messages td{
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th>
-    <th>Website</th>
-    <th></th>
+    <th>Sent at</th>
     <th></th>
     <th></th>
   </tr>
@@ -23,10 +22,9 @@ table#messages th, table#messages td{
     <td><%= message.visitor_name %></td>
     <td><%= message.visitor_email %></td>
     <td><%= message.visitor_phone %></td>
-    <td><%= message.website_id %></td>
+    <td><%= message.abbreviated_created_at %></td>
     <td><%= link_to 'Show', admin_message_url(message) %></td>
-    <td><%= link_to 'Edit', edit_admin_message_path(message) %></td>
-    <td><%= link_to 'Destroy', admin_message_url(message), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', admin_message_url(message), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

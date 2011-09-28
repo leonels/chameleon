@@ -24,4 +24,8 @@ class Message < ActiveRecord::Base
   validates :content,
   :presence => true
 
+  def abbreviated_created_at
+		created_at.strftime("%a %b %d at %I:%M%P")
+	end
+
 end

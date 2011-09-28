@@ -2,9 +2,7 @@
 <html>
 <head>
   <title>Chameleon</title>
-  <%=
-  # stylesheet_link_tag    "app"
-  %>
+  <%= stylesheet_link_tag "admin/application" %>
   <%= stylesheet_link_tag "fancybox" %>
 
   <%= javascript_include_tag "application" %>
@@ -33,7 +31,7 @@ $(document).ready(function() {
 <body>
 		<ul>
       <li>
-        <%= current_website.name %> <%= link_to 'View your Website', root_url(:subdomain => current_website.subdomain), :target => '_blank' %>
+        Website: <%= current_website.name %> <%= link_to 'View your Website', root_url(:subdomain => current_website.subdomain), :target => '_blank' %>
       </li>			
 			<li>
 			  Signed in as <%= current_user.username %>

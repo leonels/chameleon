@@ -10,6 +10,7 @@ Chameleon::Application.routes.draw do
     resources :users
   end
   resources :users
+  resources :websites
 
   namespace :admin do |admin|
     match '/' => 'dashboard#index'

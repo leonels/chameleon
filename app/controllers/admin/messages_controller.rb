@@ -9,7 +9,6 @@ class Admin::MessagesController < AdminController
 
   def show
     # @message = Message.find(params[:id])
-
     respond_to do |format|
       format.html
       format.json { render json: @message }
@@ -24,13 +23,12 @@ class Admin::MessagesController < AdminController
     end
   end
 
-  def edit
+  # def edit
     # @message = Message.find(params[:id])
-  end
+  # end
 
   def create
     # @message = Message.new(params[:message])
-    
     website = Website.find_by_subdomain(request.subdomain)
     @message.website_id = website.id
     
@@ -50,24 +48,22 @@ class Admin::MessagesController < AdminController
     end
   end
 
-  def update
+  # def update
     # @message = Message.find(params[:id])
-
-    respond_to do |format|
-      if @message.update_attributes(params[:message])
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    # respond_to do |format|
+      # if @message.update_attributes(params[:message])
+        # format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        # format.json { head :ok }
+      # else
+        # format.html { render action: "edit" }
+        # format.json { render json: @message.errors, status: :unprocessable_entity }
+      # end
+    # end
+  # end
 
   def destroy
     # @message = Message.find(params[:id])
     @message.destroy
-
     respond_to do |format|
       format.html { redirect_to admin_messages_url }
       format.json { head :ok }
